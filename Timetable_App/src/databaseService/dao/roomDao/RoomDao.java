@@ -1,4 +1,4 @@
-package classDao;
+package databaseService.dao.roomDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,19 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import databaseService.beans.Class;
+import databaseService.beans.Room;
+import databaseService.dao.user.dao.ConnectionManager;
 
-import user.dao.ConnectionManager;
-
-public class ClassDao implements IntClassDao{
+public class RoomDao implements IntRoomDao{
 
 	@Override
-	public boolean insertClass(Class cl) {
+	public boolean insertRoom(Room rm) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO CLASS (faculty_fk,group,free_time,color)VALUES ('"+cl.getClassFacultyFk()+"','"+cl.getClassGroup()+"','"+cl.getClassFreeTime()+"','"+cl.getClassColor()+"')";
+			String sql = "INSERT INTO ROOM (abrev,free_time,color)VALUES ('"+rm.getRoomAbrev()+"','"+rm.getRoomFreeTime()+"','"+rm.getRoomColor()+"')";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -33,12 +32,12 @@ public class ClassDao implements IntClassDao{
 	}
 
 	@Override
-	public boolean deleteClass(Class cl) {
+	public boolean deleteRoom(Room rm) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "DELETE FROM CLASS WHERE ID = '"+cl.getClassId()+"' ";
+			String sql = "DELETE FROM ROOM WHERE ID = '"+rm.getRoomId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -52,12 +51,12 @@ public class ClassDao implements IntClassDao{
 	}
 
 	@Override
-	public boolean updateClass(Class cl) {
+	public boolean updateRoom(Room rm) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE CLASS SET FACULTY_FK = '"+cl.getClassFacultyFk()+"' , GROUP = '"+cl.getClassGroup()+"' , FREE_TIME = '"+cl.getClassFreeTime()+"' , COLOR = '"+cl.getClassColor()+"' WHERE ID = '"+cl.getClassId()+"' ";
+			String sql = "UPDATE ROOM SET ABREV = '"+rm.getRoomAbrev()+"' , FREE_TIME = '"+rm.getRoomFreeTime()+"' , COLOR = '"+rm.getRoomColor()+"' WHERE ID = '"+rm.getRoomId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -71,40 +70,36 @@ public class ClassDao implements IntClassDao{
 	}
 
 	@Override
-	public List<Class> selectClass(Class cl) {
+	public List<Room> selectRoom(Room rm) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
-		List<Class> list = new ArrayList<Class>();
+		List<Room> list = new ArrayList<Room>();
 		try {
 			c = cm.openConnection();
-			String sql = "SELECT * FROM CLASS WHERE 1=1 ";
-			if(cl.getClassId() != null) {
-				sql+= " AND ID = " + cl.getClassId();
+			String sql = "SELECT * FROM ROOM WHERE 1=1 ";
+			if(rm.getRoomId() != null) {
+				sql+= " AND ID = " + rm.getRoomId();
 			}
-			if(cl.getClassFacultyFk() != null) {
-				sql+= " AND FACULTY_FK = '" + cl.getClassFacultyFk()+ "'";
+			if(rm.getRoomAbrev() != null) {
+				sql+= " AND ABREV = '" + rm.getRoomAbrev()+ "'";
 			}
-			if(cl.getClassGroup() != 0) {
-				sql+= " AND GROUP = '" + cl.getClassGroup()+ "'";
+			if(rm.getRoomFreeTime() != null) {
+				sql+= " AND FREE_TIME = '" + rm.getRoomFreeTime()+ "'";
 			}
-			if(cl.getClassFreeTime() != null) {
-				sql+= " AND FREE_TIME = '" + cl.getClassFreeTime()+ "'";
-			}
-			if(cl.getClassColor() != null) {
-				sql+= " AND COLOR = '" + cl.getClassColor()+ "'";
+			if(rm.getRoomColor() != null) {
+				sql+= " AND COLOR = '" + rm.getRoomColor()+ "'";
 			}
 			
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
 			while(resultats.next()) {
-				Class cll = new Class();
-				cll.setClassId(resultats.getLong("Id"));
-				cll.setClassFacultyFk(resultats.getLong("faculty_fk"));
-				cll.setClassGroup(resultats.getInt("group"));
-				cll.setClassFreeTime(resultats.getString("free_time"));
-				cll.setClassColor(resultats.getString("color"));
+				Room rml = new Room();
+				rml.setRoomId(resultats.getLong("Id"));
+				rml.setRoomAbrev(resultats.getString("abrev"));
+				rml.setRoomFreeTime(resultats.getString("free_time"));
+				rml.setRoomColor(resultats.getString("color"));
 				
-				list.add(cll);
+				list.add(rml);
 			}
 			
 		} catch (SQLException e) {
@@ -115,7 +110,6 @@ public class ClassDao implements IntClassDao{
 			cm.closeConnection(c);
 		}
 		return list;
-		
 	}
 
 }

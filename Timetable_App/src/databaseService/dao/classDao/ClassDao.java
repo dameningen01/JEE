@@ -1,4 +1,4 @@
-package professeurDao;
+package databaseService.dao.classDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,18 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import databaseService.beans.Teacher;
-import user.dao.ConnectionManager;
+import databaseService.beans.Class;
+import databaseService.dao.user.dao.ConnectionManager;
 
-public class TeacherDao implements IntTeacherDao{
+public class ClassDao implements IntClassDao{
 
 	@Override
-	public boolean insertTeacher(Teacher p) {
+	public boolean insertClass(Class cl) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO TEACHER (name,free_time,couleur,user_id)VALUES ('"+p.getTeacherName()+"','"+p.getTeacherFreeTime()+"','"+p.getTeacherColor()+"','"+p.getTeacherUserFk()+"')";
+			String sql = "INSERT INTO CLASS (faculty_fk,group,free_time,color)VALUES ('"+cl.getClassFacultyFk()+"','"+cl.getClassGroup()+"','"+cl.getClassFreeTime()+"','"+cl.getClassColor()+"')";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -32,12 +32,12 @@ public class TeacherDao implements IntTeacherDao{
 	}
 
 	@Override
-	public boolean deleteTeacher(Teacher p) {
+	public boolean deleteClass(Class cl) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "DELETE FROM TEACHER WHERE ID = '"+p.getTeacherId()+"' ";
+			String sql = "DELETE FROM CLASS WHERE ID = '"+cl.getClassId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -51,12 +51,12 @@ public class TeacherDao implements IntTeacherDao{
 	}
 
 	@Override
-	public boolean updateTeacher(Teacher p) {
+	public boolean updateClass(Class cl) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE TEACHER SET NAME = '"+p.getTeacherName()+"' , FREE_TIME = '"+p.getTeacherFreeTime()+"' , USER_ID = '"+p.getTeacherUserFk()+"' , COLOR = '"+p.getTeacherColor()+"' WHERE ID = '"+p.getTeacherId()+"' ";
+			String sql = "UPDATE CLASS SET FACULTY_FK = '"+cl.getClassFacultyFk()+"' , GROUP = '"+cl.getClassGroup()+"' , FREE_TIME = '"+cl.getClassFreeTime()+"' , COLOR = '"+cl.getClassColor()+"' WHERE ID = '"+cl.getClassId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -70,40 +70,40 @@ public class TeacherDao implements IntTeacherDao{
 	}
 
 	@Override
-	public List<Teacher> selectTeacher(Teacher p) {
+	public List<Class> selectClass(Class cl) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
-		List<Teacher> list = new ArrayList<Teacher>();
+		List<Class> list = new ArrayList<Class>();
 		try {
 			c = cm.openConnection();
-			String sql = "SELECT * FROM TEACHER WHERE 1=1 ";
-			if(p.getTeacherId() != null) {
-				sql+= " AND ID = " + p.getTeacherId();
+			String sql = "SELECT * FROM CLASS WHERE 1=1 ";
+			if(cl.getClassId() != null) {
+				sql+= " AND ID = " + cl.getClassId();
 			}
-			if(p.getTeacherName() != null) {
-				sql+= " AND NAME = '" + p.getTeacherName()+ "'";
+			if(cl.getClassFacultyFk() != null) {
+				sql+= " AND FACULTY_FK = '" + cl.getClassFacultyFk()+ "'";
 			}
-			if(p.getTeacherFreeTime() != null) {
-				sql+= " AND FREE_TIME = '" + p.getTeacherFreeTime()+ "'";
+			if(cl.getClassGroup() != 0) {
+				sql+= " AND GROUP = '" + cl.getClassGroup()+ "'";
 			}
-			if(p.getTeacherUserFk() != null) {
-				sql+= " AND USER_ID = '" + p.getTeacherUserFk()+ "'";
+			if(cl.getClassFreeTime() != null) {
+				sql+= " AND FREE_TIME = '" + cl.getClassFreeTime()+ "'";
 			}
-			if(p.getTeacherColor() != null) {
-				sql+= " AND COULEUR = '" + p.getTeacherColor()+ "'";
+			if(cl.getClassColor() != null) {
+				sql+= " AND COLOR = '" + cl.getClassColor()+ "'";
 			}
 			
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
 			while(resultats.next()) {
-				Teacher pl = new Teacher();
-				pl.setTeacherId(resultats.getLong("Id"));
-				pl.setTeacherName(resultats.getString("name"));
-				pl.setTeacherFreeTime(resultats.getString("free_time"));
-				pl.setTeacherUserFk(resultats.getLong("user_id"));
-				pl.setTeacherColor(resultats.getString("couleur"));
+				Class cll = new Class();
+				cll.setClassId(resultats.getLong("Id"));
+				cll.setClassFacultyFk(resultats.getLong("faculty_fk"));
+				cll.setClassGroup(resultats.getInt("group"));
+				cll.setClassFreeTime(resultats.getString("free_time"));
+				cll.setClassColor(resultats.getString("color"));
 				
-				list.add(pl);
+				list.add(cll);
 			}
 			
 		} catch (SQLException e) {
@@ -114,6 +114,7 @@ public class TeacherDao implements IntTeacherDao{
 			cm.closeConnection(c);
 		}
 		return list;
+		
 	}
 
 }

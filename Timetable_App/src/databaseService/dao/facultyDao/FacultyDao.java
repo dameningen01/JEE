@@ -1,4 +1,4 @@
-package roomDao;
+package databaseService.dao.facultyDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,18 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import databaseService.beans.Room;
-import user.dao.ConnectionManager;
+import databaseService.beans.Faculty;
+import databaseService.dao.user.dao.ConnectionManager;
 
-public class RoomDao implements IntRoomDao{
+public class FacultyDao implements IntFacultyDao{
 
 	@Override
-	public boolean insertRoom(Room rm) {
+	public boolean insertFaculty(Faculty f) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO ROOM (abrev,free_time,color)VALUES ('"+rm.getRoomAbrev()+"','"+rm.getRoomFreeTime()+"','"+rm.getRoomColor()+"')";
+			String sql = "INSERT INTO FACULTY (name,abrev,year)VALUES ('"+f.getFacultyName()+"','"+f.getFacultyAbrev()+"','"+f.getFacultyYear()+"')";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -32,12 +32,12 @@ public class RoomDao implements IntRoomDao{
 	}
 
 	@Override
-	public boolean deleteRoom(Room rm) {
+	public boolean deleteFaculty(Faculty f) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "DELETE FROM ROOM WHERE ID = '"+rm.getRoomId()+"' ";
+			String sql = "DELETE FROM FACULTY WHERE ID = '"+f.getFacultyId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -51,12 +51,12 @@ public class RoomDao implements IntRoomDao{
 	}
 
 	@Override
-	public boolean updateRoom(Room rm) {
+	public boolean updateFaculty(Faculty f) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE ROOM SET ABREV = '"+rm.getRoomAbrev()+"' , FREE_TIME = '"+rm.getRoomFreeTime()+"' , COLOR = '"+rm.getRoomColor()+"' WHERE ID = '"+rm.getRoomId()+"' ";
+			String sql = "UPDATE FACULTY SET NAME = '"+f.getFacultyName()+"' , ABREV = '"+f.getFacultyAbrev()+"' , YEAR = '"+f.getFacultyYear()+"' WHERE ID = '"+f.getFacultyId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -70,36 +70,36 @@ public class RoomDao implements IntRoomDao{
 	}
 
 	@Override
-	public List<Room> selectRoom(Room rm) {
+	public List<Faculty> selectFaculty(Faculty f) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
-		List<Room> list = new ArrayList<Room>();
+		List<Faculty> list = new ArrayList<Faculty>();
 		try {
 			c = cm.openConnection();
-			String sql = "SELECT * FROM ROOM WHERE 1=1 ";
-			if(rm.getRoomId() != null) {
-				sql+= " AND ID = " + rm.getRoomId();
+			String sql = "SELECT * FROM FACULTY WHERE 1=1 ";
+			if(f.getFacultyId() != null) {
+				sql+= " AND ID = " + f.getFacultyId();
 			}
-			if(rm.getRoomAbrev() != null) {
-				sql+= " AND ABREV = '" + rm.getRoomAbrev()+ "'";
+			if(f.getFacultyName() != null) {
+				sql+= " AND NAME = '" + f.getFacultyName()+ "'";
 			}
-			if(rm.getRoomFreeTime() != null) {
-				sql+= " AND FREE_TIME = '" + rm.getRoomFreeTime()+ "'";
+			if(f.getFacultyAbrev() != null) {
+				sql+= " AND ABREV = '" + f.getFacultyAbrev()+ "'";
 			}
-			if(rm.getRoomColor() != null) {
-				sql+= " AND COLOR = '" + rm.getRoomColor()+ "'";
+			if(f.getFacultyYear() != null) {
+				sql+= " AND Year = '" + f.getFacultyYear()+ "'";
 			}
 			
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
 			while(resultats.next()) {
-				Room rml = new Room();
-				rml.setRoomId(resultats.getLong("Id"));
-				rml.setRoomAbrev(resultats.getString("abrev"));
-				rml.setRoomFreeTime(resultats.getString("free_time"));
-				rml.setRoomColor(resultats.getString("color"));
+				Faculty fl = new Faculty();
+				fl.setFacultyId(resultats.getLong("Id"));
+				fl.setFacultyName(resultats.getString("name"));
+				fl.setFacultyAbrev(resultats.getString("abrev"));
+				fl.setFacultyYear(resultats.getString("year"));
 				
-				list.add(rml);
+				list.add(fl);
 			}
 			
 		} catch (SQLException e) {
@@ -110,6 +110,7 @@ public class RoomDao implements IntRoomDao{
 			cm.closeConnection(c);
 		}
 		return list;
+		
 	}
 
 }

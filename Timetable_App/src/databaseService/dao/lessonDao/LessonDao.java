@@ -1,4 +1,4 @@
-package lessonDao;
+package databaseService.dao.lessonDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import databaseService.beans.Lesson;
-
-import user.dao.ConnectionManager;
+import databaseService.dao.user.dao.ConnectionManager;
 
 public class LessonDao implements IntLessonDao{
 

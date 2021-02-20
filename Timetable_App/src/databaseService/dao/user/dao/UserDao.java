@@ -1,4 +1,4 @@
-package facultyDao;
+package databaseService.dao.user.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,19 +7,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import databaseService.beans.Faculty;
+import databaseService.beans.User;
 
-import user.dao.ConnectionManager;
-
-public class FacultyDao implements IntFacultyDao{
+public class UserDao implements IntUserDao{
 
 	@Override
-	public boolean insertFaculty(Faculty f) {
+	public boolean insertUser(User u) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO FACULTY (name,abrev,year)VALUES ('"+f.getFacultyName()+"','"+f.getFacultyAbrev()+"','"+f.getFacultyYear()+"')";
+			String sql = "INSERT INTO USERS (Username,password,user_type)VALUES ('"+u.getUsername()+"','"+u.getPassword()+"','"+u.getUserType()+"')";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -33,12 +31,12 @@ public class FacultyDao implements IntFacultyDao{
 	}
 
 	@Override
-	public boolean deleteFaculty(Faculty f) {
+	public boolean deleteUser(User u) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "DELETE FROM FACULTY WHERE ID = '"+f.getFacultyId()+"' ";
+			String sql = "DELETE FROM USERS WHERE ID = '"+u.getUserID()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -52,12 +50,12 @@ public class FacultyDao implements IntFacultyDao{
 	}
 
 	@Override
-	public boolean updateFaculty(Faculty f) {
+	public boolean updateUser(User u) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE FACULTY SET NAME = '"+f.getFacultyName()+"' , ABREV = '"+f.getFacultyAbrev()+"' , YEAR = '"+f.getFacultyYear()+"' WHERE ID = '"+f.getFacultyId()+"' ";
+			String sql = "UPDATE USERS SET USERNAME = '"+u.getUsername()+"' , USER_TYPE = '"+u.getUserType()+"' WHERE ID = '"+u.getUserID()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -71,36 +69,36 @@ public class FacultyDao implements IntFacultyDao{
 	}
 
 	@Override
-	public List<Faculty> selectFaculty(Faculty f) {
+	public List<User> selectUser(User u) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
-		List<Faculty> list = new ArrayList<Faculty>();
+		List<User> list = new ArrayList<User>();
 		try {
 			c = cm.openConnection();
-			String sql = "SELECT * FROM FACULTY WHERE 1=1 ";
-			if(f.getFacultyId() != null) {
-				sql+= " AND ID = " + f.getFacultyId();
+			String sql = "SELECT * FROM USERS WHERE 1=1 ";
+			if(u.getUserID() != null) {
+				sql+= " AND ID = " + u.getUserID();
 			}
-			if(f.getFacultyName() != null) {
-				sql+= " AND NAME = '" + f.getFacultyName()+ "'";
+			if(u.getUsername() != null) {
+				sql+= " AND USERNAME = '" + u.getUsername()+ "'";
 			}
-			if(f.getFacultyAbrev() != null) {
-				sql+= " AND ABREV = '" + f.getFacultyAbrev()+ "'";
+			if(u.getPassword() != null) {
+				sql+= " AND PASSWORD = '" + u.getPassword()+ "'";
 			}
-			if(f.getFacultyYear() != null) {
-				sql+= " AND Year = '" + f.getFacultyYear()+ "'";
+			if(u.getUserType() != null) {
+				sql+= " AND USER_TYPE = '" + u.getUserType()+ "'";
 			}
 			
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
 			while(resultats.next()) {
-				Faculty fl = new Faculty();
-				fl.setFacultyId(resultats.getLong("Id"));
-				fl.setFacultyName(resultats.getString("name"));
-				fl.setFacultyAbrev(resultats.getString("abrev"));
-				fl.setFacultyYear(resultats.getString("year"));
+				User ul = new User();
+				ul.setId(resultats.getLong("Id"));
+				ul.setUsername(resultats.getString("username"));
+				ul.setPassword(resultats.getString("password"));
+				ul.setUserType(resultats.getString("user_type"));
 				
-				list.add(fl);
+				list.add(ul);
 			}
 			
 		} catch (SQLException e) {
@@ -111,7 +109,6 @@ public class FacultyDao implements IntFacultyDao{
 			cm.closeConnection(c);
 		}
 		return list;
-		
 	}
 
 }

@@ -1,4 +1,4 @@
-package roomDao;
+package databaseService.dao.roomDao;
 
 import java.util.List;
 

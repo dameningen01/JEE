@@ -1,4 +1,4 @@
-package user.dao;
+package databaseService.dao.user.dao;
 import java.util.List;
 
 import databaseService.beans.User;

@@ -1,4 +1,4 @@
-package timetableDao;
+package databaseService.dao.timetableDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import databaseService.beans.Timetable;
-import user.dao.ConnectionManager;
+import databaseService.dao.user.dao.ConnectionManager;
 
 public class TimetableDao implements IntTimetableDao{
 

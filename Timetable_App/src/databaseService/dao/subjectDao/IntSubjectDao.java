@@ -1,4 +1,4 @@
-package subjectDao;
+package databaseService.dao.subjectDao;
 
 import java.util.List;
 

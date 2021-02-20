@@ -1,4 +1,4 @@
-package user.dao;
+package databaseService.dao.professeurDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,17 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import databaseService.beans.User;
+import databaseService.beans.Teacher;
+import databaseService.dao.user.dao.ConnectionManager;
 
-public class UserDao implements IntUserDao{
+public class TeacherDao implements IntTeacherDao{
 
 	@Override
-	public boolean insertUser(User u) {
+	public boolean insertTeacher(Teacher p) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO USERS (Username,password,user_type)VALUES ('"+u.getUsername()+"','"+u.getPassword()+"','"+u.getUserType()+"')";
+			String sql = "INSERT INTO TEACHER (name,free_time,couleur,user_id)VALUES ('"+p.getTeacherName()+"','"+p.getTeacherFreeTime()+"','"+p.getTeacherColor()+"','"+p.getTeacherUserFk()+"')";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -31,12 +32,12 @@ public class UserDao implements IntUserDao{
 	}
 
 	@Override
-	public boolean deleteUser(User u) {
+	public boolean deleteTeacher(Teacher p) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "DELETE FROM USERS WHERE ID = '"+u.getUserID()+"' ";
+			String sql = "DELETE FROM TEACHER WHERE ID = '"+p.getTeacherId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -50,12 +51,12 @@ public class UserDao implements IntUserDao{
 	}
 
 	@Override
-	public boolean updateUser(User u) {
+	public boolean updateTeacher(Teacher p) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE USERS SET USERNAME = '"+u.getUsername()+"' , USER_TYPE = '"+u.getUserType()+"' WHERE ID = '"+u.getUserID()+"' ";
+			String sql = "UPDATE TEACHER SET NAME = '"+p.getTeacherName()+"' , FREE_TIME = '"+p.getTeacherFreeTime()+"' , USER_ID = '"+p.getTeacherUserFk()+"' , COLOR = '"+p.getTeacherColor()+"' WHERE ID = '"+p.getTeacherId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -69,36 +70,40 @@ public class UserDao implements IntUserDao{
 	}
 
 	@Override
-	public List<User> selectUser(User u) {
+	public List<Teacher> selectTeacher(Teacher p) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
-		List<User> list = new ArrayList<User>();
+		List<Teacher> list = new ArrayList<Teacher>();
 		try {
 			c = cm.openConnection();
-			String sql = "SELECT * FROM USERS WHERE 1=1 ";
-			if(u.getUserID() != null) {
-				sql+= " AND ID = " + u.getUserID();
+			String sql = "SELECT * FROM TEACHER WHERE 1=1 ";
+			if(p.getTeacherId() != null) {
+				sql+= " AND ID = " + p.getTeacherId();
 			}
-			if(u.getUsername() != null) {
-				sql+= " AND USERNAME = '" + u.getUsername()+ "'";
+			if(p.getTeacherName() != null) {
+				sql+= " AND NAME = '" + p.getTeacherName()+ "'";
 			}
-			if(u.getPassword() != null) {
-				sql+= " AND PASSWORD = '" + u.getPassword()+ "'";
+			if(p.getTeacherFreeTime() != null) {
+				sql+= " AND FREE_TIME = '" + p.getTeacherFreeTime()+ "'";
 			}
-			if(u.getUserType() != null) {
-				sql+= " AND USER_TYPE = '" + u.getUserType()+ "'";
+			if(p.getTeacherUserFk() != null) {
+				sql+= " AND USER_ID = '" + p.getTeacherUserFk()+ "'";
+			}
+			if(p.getTeacherColor() != null) {
+				sql+= " AND COULEUR = '" + p.getTeacherColor()+ "'";
 			}
 			
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
 			while(resultats.next()) {
-				User ul = new User();
-				ul.setId(resultats.getLong("Id"));
-				ul.setUsername(resultats.getString("username"));
-				ul.setPassword(resultats.getString("password"));
-				ul.setUserType(resultats.getString("user_type"));
+				Teacher pl = new Teacher();
+				pl.setTeacherId(resultats.getLong("Id"));
+				pl.setTeacherName(resultats.getString("name"));
+				pl.setTeacherFreeTime(resultats.getString("free_time"));
+				pl.setTeacherUserFk(resultats.getLong("user_id"));
+				pl.setTeacherColor(resultats.getString("couleur"));
 				
-				list.add(ul);
+				list.add(pl);
 			}
 			
 		} catch (SQLException e) {

@@ -1,4 +1,4 @@
-package facultyDao;
+package databaseService.dao.facultyDao;
 
 import java.util.List;
 

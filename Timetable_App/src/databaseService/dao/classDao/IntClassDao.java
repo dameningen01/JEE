@@ -1,4 +1,4 @@
-package classDao;
+package databaseService.dao.classDao;
 
 import java.util.List;
 import databaseService.beans.Class;

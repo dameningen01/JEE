@@ -1,4 +1,4 @@
-package subjectDao;
+package databaseService.dao.subjectDao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import databaseService.beans.Subject;
-
-import user.dao.ConnectionManager;
+import databaseService.dao.user.dao.ConnectionManager;
 
 public class SubjectDao implements IntSubjectDao{
 

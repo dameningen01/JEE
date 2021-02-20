@@ -1,4 +1,4 @@
-package lessonDao;
+package databaseService.dao.lessonDao;
 
 import java.util.List;
 

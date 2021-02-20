@@ -1,4 +1,4 @@
-package professeurDao;
+package databaseService.dao.professeurDao;
 
 import java.util.List;
 

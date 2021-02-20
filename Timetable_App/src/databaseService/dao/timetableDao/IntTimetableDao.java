@@ -1,4 +1,4 @@
-package timetableDao;
+package databaseService.dao.timetableDao;
 
 import java.util.List;
 
