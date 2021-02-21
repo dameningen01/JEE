@@ -16,10 +16,10 @@ public class ConnectionManager {
 	public Connection openConnection() {
 		Connection c = null ;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/jeedb";
-			String user = "admin";
-			String password = "admin"; 
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/jeedatabase";
+			String user = "root";
+			String password = ""; 
 			
 			c = DriverManager.getConnection(url,user,password);
 			
