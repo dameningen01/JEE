@@ -1,6 +1,10 @@
 package databaseService.beans;
 
-public class Room {
+public class Room implements java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String abrev;
 	private String free_time;

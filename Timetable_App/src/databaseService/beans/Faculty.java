@@ -1,6 +1,10 @@
 package databaseService.beans;
 
-public class Faculty {
+public class Faculty implements java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
 	private String abrev;

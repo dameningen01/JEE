@@ -1,6 +1,10 @@
 package databaseService.beans;
 
-public class Subject {
+public class Subject implements java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String module;
 	private String submodule;
