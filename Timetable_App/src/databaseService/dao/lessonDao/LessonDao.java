@@ -78,19 +78,19 @@ public class LessonDao implements IntLessonDao{
 			c = cm.openConnection();
 			String sql = "SELECT * FROM LESSON WHERE 1=1 ";
 			if(ls.getLessonId() != null) {
-				sql+= " AND ID = " + ls.getLessonId();
+				sql+= " AND ID = '" + ls.getLessonId()+ "'";
 			}
 			if(ls.getLessonTeacherFk() != null) {
-				sql+= " AND TEACHER_ID = " + ls.getLessonTeacherFk();
+				sql+= " AND TEACHER_ID = '" + ls.getLessonTeacherFk()+ "'";
 			}
 			if(ls.getLessonClassFk() != null) {
-				sql+= " AND CLASS_ID = " + ls.getLessonClassFk();
+				sql+= " AND CLASS_ID = '" + ls.getLessonClassFk()+ "'";
 			}
 			if(ls.getLessonRoomFk() != null) {
-				sql+= " AND ROOM_ID = " + ls.getLessonRoomFk();
+				sql+= " AND ROOM_ID = '" + ls.getLessonRoomFk()+ "'";
 			}
 			if(ls.getLessonSubjectFk() != null) {
-				sql+= " AND SUBJECT_ID = " + ls.getLessonSubjectFk();
+				sql+= " AND SUBJECT_ID = '" + ls.getLessonSubjectFk()+ "'";
 			}
 			if(ls.getLessonTimetableFk() != null) {
 				sql+= " AND TIMETABLE_ID = '" + ls.getLessonTimetableFk()+ "'";
@@ -107,7 +107,8 @@ public class LessonDao implements IntLessonDao{
 			if(ls.getLessonColor() != null) {
 				sql+= " AND COLOR = '" + ls.getLessonColor()+ "'";
 			}
-			
+			sql+= ";";
+			System.out.println(sql);
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
 			while(resultats.next()) {
