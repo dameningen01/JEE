@@ -17,7 +17,7 @@ import databaseService.dao.roomDao.RoomDao;
 /**
  * Servlet implementation class CRUDroom
  */
-@WebServlet("/room/*")
+
 public class CRUDroom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
