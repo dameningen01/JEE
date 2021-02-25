@@ -84,7 +84,7 @@ public class ClassDao implements IntClassDao{
 				sql+= " AND FACULTY_FK = '" + cl.getClassFacultyFk()+ "'";
 			}
 			if(cl.getClassGroup() != 0) {
-				sql+= " AND GROUP = '" + cl.getClassGroup()+ "'";
+				sql+= " AND GROUP_NUM = '" + cl.getClassGroup()+ "'";
 			}
 			if(cl.getClassFreeTime() != null) {
 				sql+= " AND FREE_TIME = '" + cl.getClassFreeTime()+ "'";
