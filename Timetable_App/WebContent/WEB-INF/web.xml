@@ -9,4 +9,129 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  
+	  <servlet>
+	    <servlet-name>Home</servlet-name>
+	    <servlet-class>appJobs.servlets.Home</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>Home</servlet-name>
+	    <url-pattern>/</url-pattern>
+	  </servlet-mapping>
+	  
+	  
+	  
+	    <servlet>
+	    <servlet-name>Login</servlet-name>
+	    <servlet-class>appJobs.servlets.Login</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>Login</servlet-name>
+	    <url-pattern>/login</url-pattern>
+	  </servlet-mapping>
+	  
+	  
+	  
+	   <servlet>
+	    <servlet-name>Logout</servlet-name>
+	    <servlet-class>appJobs.servlets.Logout</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>Logout</servlet-name>
+	    <url-pattern>/logout</url-pattern>
+	  </servlet-mapping>
+	  
+	  
+	  
+	  <servlet>
+	    <servlet-name>Professor</servlet-name>
+	    <servlet-class>appJobs.servlets.Professor</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>Professor</servlet-name>
+	    <url-pattern>/teachers</url-pattern>
+	  </servlet-mapping>
+	  
+	  
+	  
+	  <servlet>
+	    <servlet-name>ClassTimetable</servlet-name>
+	    <servlet-class>appJobs.servlets.ClassTimetable</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>ClassTimetable</servlet-name>
+	    <url-pattern>/classTimetable</url-pattern>
+	  </servlet-mapping>
+	  
+	  
+	  
+	  <servlet>
+	    <servlet-name>Timetables</servlet-name>
+	    <servlet-class>appJobs.servlets.Timetables</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>Timetables</servlet-name>
+	    <url-pattern>/timetables</url-pattern>
+	  </servlet-mapping>
+
+					<!--API URLS-->
+					
+		<servlet>
+	    <servlet-name>ApiFaculty</servlet-name>
+	    <servlet-class>appJobs.servlets.api.ApiFaculty</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>ApiFaculty</servlet-name>
+	    <url-pattern>/api/faculty/</url-pattern>
+	  </servlet-mapping>
+	  
+	  <servlet>
+	    <servlet-name>ApiClass</servlet-name>
+	    <servlet-class>appJobs.servlets.api.ApiClass</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>ApiClass</servlet-name>
+	    <url-pattern>/api/class/</url-pattern>
+	  </servlet-mapping>			
+	  			
+	  <servlet>
+	    <servlet-name>ApiProf</servlet-name>
+	    <servlet-class>appJobs.servlets.api.ApiProf</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>ApiProf</servlet-name>
+	    <url-pattern>/api/prof/</url-pattern>
+	  </servlet-mapping>
+	  
+	  <servlet>
+	    <servlet-name>ApiTimetable</servlet-name>
+	    <servlet-class>appJobs.servlets.api.ApiTimetable</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>ApiTimetable</servlet-name>
+	    <url-pattern>/api/timetable/</url-pattern>
+	  </servlet-mapping>
+	  
+	  <servlet>
+	    <servlet-name>ApiLesson</servlet-name>
+	    <servlet-class>appJobs.servlets.api.ApiLesson</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>ApiLesson</servlet-name>
+	    <url-pattern>/api/lesson/</url-pattern>
+	  </servlet-mapping>
+ 
+	 
+	          <!--CRUD URLS-->
+
+		<servlet>
+		    <servlet-name>CRUDteacher</servlet-name>
+		    <servlet-class>appJobs.servlets.crud.CRUDteacher</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>CRUDteacher</servlet-name>
+		    <url-pattern>/teacher/*</url-pattern>
+	   </servlet-mapping>
+	   
 </web-app>

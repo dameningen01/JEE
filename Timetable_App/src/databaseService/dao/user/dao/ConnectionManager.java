@@ -16,8 +16,8 @@ public class ConnectionManager {
 	public Connection openConnection() {
 		Connection c = null ;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/jeedatabase";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3308/jeedb?serverTimezone=UTC";
 			String user = "root";
 			String password = ""; 
 			
