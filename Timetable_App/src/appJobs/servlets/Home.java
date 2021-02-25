@@ -44,6 +44,8 @@ public class Home extends HttpServlet {
 	
            String usertype = (String) session.getAttribute("usertype");
            
+           //System.out.println(request.getServletPath());
+           
 		  if( usertype != null)
 		  {
 			  User user = new User();
