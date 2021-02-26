@@ -17,7 +17,7 @@ import databaseService.dao.lessonDao.LessonDao;
 /**
  * Servlet implementation class lessonCRUD
  */
-@WebServlet("/lesson/*")
+
 public class CRUDlesson extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
