@@ -26,12 +26,13 @@ public class Subject implements java.io.Serializable{
 			}	
 				
 			//Constructeur pour le test de la requette UPDATE 
-			public Subject(Long id,String module, String submodule,String abrev, String color) {
+			public Subject(Long id,String module, String submodule,String type,String abrev, String color) {
 				this.id = id;
 				this.module = module;
 				this.submodule = submodule;
 				this.abrev = abrev;
 				this.color = color;
+				this.type = type;
 			}
 			// Constructeur vide pour avoir la list des resultats de la requete SELECT
 			public Subject() {
