@@ -18,7 +18,7 @@ public class SubjectDao implements IntSubjectDao{
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO SUBJECT (module,submodule,type,abrev,color) VALUES ('"+sb.getSubjectModule()+"','"+sb.getSubjectSubmodule()+"','"+sb.getSubjectType()+"','"+sb.getSubjectAbrev()+"','"+sb.getSubjectColor()+"')";
+			String sql = "INSERT INTO SUBJECT (module,sub_module,type,abrev,color) VALUES ('"+sb.getSubjectModule()+"','"+sb.getSubjectSubmodule()+"','"+sb.getSubjectType()+"','"+sb.getSubjectAbrev()+"','"+sb.getSubjectColor()+"')";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -56,7 +56,7 @@ public class SubjectDao implements IntSubjectDao{
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE SUBJECT SET MODULE = '"+sb.getSubjectModule()+"' , SUBMODULE = '"+sb.getSubjectSubmodule()+"' , TYPE = '"+sb.getSubjectType()+"' , ABREV = '"+sb.getSubjectAbrev()+"' , COLOR = '"+sb.getSubjectColor()+"' WHERE ID = '"+sb.getSubjectId()+"' ";
+			String sql = "UPDATE SUBJECT SET MODULE = '"+sb.getSubjectModule()+"' , SUB_MODULE = '"+sb.getSubjectSubmodule()+"' , TYPE = '"+sb.getSubjectType()+"' , ABREV = '"+sb.getSubjectAbrev()+"' , COLOR = '"+sb.getSubjectColor()+"' WHERE ID = '"+sb.getSubjectId()+"' ";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -84,7 +84,7 @@ public class SubjectDao implements IntSubjectDao{
 				sql+= " AND MODULE = '" + sb.getSubjectModule()+ "'";
 			}
 			if(sb.getSubjectSubmodule() != null) {
-				sql+= " AND SUBMODULE = '" + sb.getSubjectSubmodule()+ "'";
+				sql+= " AND SUB_MODULE = '" + sb.getSubjectSubmodule()+ "'";
 			}
 			if(sb.getSubjectType() != null) {
 				sql+= " AND TYPE = '" + sb.getSubjectType()+ "'";
@@ -102,7 +102,7 @@ public class SubjectDao implements IntSubjectDao{
 				Subject sbl = new Subject();
 				sbl.setSubjectId(resultats.getLong("Id"));
 				sbl.setSubjectModule(resultats.getString("module"));
-				sbl.setSubjectSubmodule(resultats.getString("submodule"));
+				sbl.setSubjectSubmodule(resultats.getString("sub_module"));
 				sbl.setSubjectType(resultats.getString("type"));
 				sbl.setSubjectAbrev(resultats.getString("abrev"));
 				sbl.setSubjectColor(resultats.getString("color"));
