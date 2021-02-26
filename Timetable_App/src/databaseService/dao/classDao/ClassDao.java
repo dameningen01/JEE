@@ -18,7 +18,7 @@ public class ClassDao implements IntClassDao{
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO CLASS (faculty_fk,group,free_time,color)VALUES ('"+cl.getClassFacultyFk()+"','"+cl.getClassGroup()+"','"+cl.getClassFreeTime()+"','"+cl.getClassColor()+"')";
+			String sql = "INSERT INTO CLASS (faculty_id,group,free_time,color)VALUES ('"+cl.getClassFacultyFk()+"','"+cl.getClassGroup()+"','"+cl.getClassFreeTime()+"','"+cl.getClassColor()+"');";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -56,7 +56,7 @@ public class ClassDao implements IntClassDao{
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE CLASS SET FACULTY_FK = '"+cl.getClassFacultyFk()+"' , GROUP = '"+cl.getClassGroup()+"' , FREE_TIME = '"+cl.getClassFreeTime()+"' , COLOR = '"+cl.getClassColor()+"' WHERE ID = '"+cl.getClassId()+"' ";
+			String sql = "UPDATE CLASS SET FACULTY_ID = '"+cl.getClassFacultyFk()+"' , GROUP = '"+cl.getClassGroup()+"' , FREE_TIME = '"+cl.getClassFreeTime()+"' , COLOR = '"+cl.getClassColor()+"' WHERE ID = '"+cl.getClassId()+"' ;";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -81,7 +81,7 @@ public class ClassDao implements IntClassDao{
 				sql+= " AND ID = '" + cl.getClassId()+ "'";
 			}
 			if(cl.getClassFacultyFk() != null) {
-				sql+= " AND FACULTY_FK = '" + cl.getClassFacultyFk()+ "'";
+				sql+= " AND FACULTY_ID = '" + cl.getClassFacultyFk()+ "'";
 			}
 			if(cl.getClassGroup() != 0) {
 				sql+= " AND GROUP_NUM = '" + cl.getClassGroup()+ "'";
