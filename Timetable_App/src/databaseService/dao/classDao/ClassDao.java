@@ -98,7 +98,7 @@ public class ClassDao implements IntClassDao{
 			while(resultats.next()) {
 				Class cll = new Class();
 				cll.setClassId(resultats.getLong("Id"));
-				cll.setClassFacultyFk(resultats.getLong("faculty_fk"));
+				cll.setClassFacultyFk(resultats.getLong("faculty_id"));
 				cll.setClassGroup(resultats.getInt("group"));
 				cll.setClassFreeTime(resultats.getString("free_time"));
 				cll.setClassColor(resultats.getString("color"));
