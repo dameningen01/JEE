@@ -170,5 +170,61 @@ public class LessonDao implements IntLessonDao{
 		}
 		return list;
 	}
+	
+	@SuppressWarnings("null")
+	@Override
+	public ArrayList<String> selectDetailsLesson(Lesson ls) {
+		String s1 = null;
+		String s2 = null;
+		String s3 = null;
+		String s4 = null;
+		String s5 = null;
+		String s6 = null;
+		String s7 = null;
+		
+		ConnectionManager cm = ConnectionManager.getInstance();
+		Connection c = null;
+		ArrayList<String> lr = new ArrayList<String>();
+		try {
+			c = cm.openConnection();
+			String sql = "SELECT l.id, l.teacher_id, t.name, l.class_id, concat (f.year, f.abrev, c.group_num) as info , l.room_id, r.abrev, l.subject_id, s.abrev, l.total_lessons, l.timetable_id, l.lesson_occ, l.lesson_link, l.color, c.free_time, t.free_time, c.color FROM  lesson l, teacher t, class c, faculty f, room r, subject s, timetable tb WHERE  l.teacher_id = t.id AND l.class_id = c.id AND c.faculty_id = f.id AND  l.room_id = r.id AND l.subject_id = s.id AND l.timetable_id = tb.id ; ";
+			
+			Statement st = c.createStatement();
+			ResultSet resultats = st.executeQuery(sql);
+			
+			while(resultats.next()) {
+				s1.substring((int) resultats.getLong("l.id"));
+				s2.substring((int) resultats.getLong("l.teacher_id"));
+				s3.substring((int)resultats.getLong("l.class_id"));
+				s4.substring((int)resultats.getLong("l.room_id"));
+				s5.substring((int)resultats.getLong("l.subject_id"));
+				s6.substring((int)resultats.getLong("l.timetable_id"));
+				s7.substring((int)resultats.getInt("l.total_lessons"));
+				
+				lr.add(s1);
+				lr.add(s2);
+				lr.add(s3);
+				lr.add(s4);
+				lr.add(s5);
+				lr.add(s6);
+				lr.add(s7);
+				lr.add(resultats.getString("l.lesson_occ"));
+				lr.add(resultats.getString("l.lesson_link"));
+				lr.add(resultats.getString("l.color"));
+				lr.add(resultats.getString("t.name"));
+				lr.add(resultats.getString("r.abrev"));
+				lr.add(resultats.getString("s.abrev"));
+				lr.add(resultats.getString("info"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("statement failed to parse");
+			e.printStackTrace();
+		}finally {
+			cm.closeConnection(c);
+		}
+		return lr;
+	}
 
 }
