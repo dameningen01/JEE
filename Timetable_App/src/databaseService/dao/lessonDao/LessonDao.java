@@ -230,6 +230,7 @@ public class LessonDao implements IntLessonDao{
 		return lr;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public ArrayList<String> selectDetailsLesson(Lesson ls) {
 		String s1 = null;
