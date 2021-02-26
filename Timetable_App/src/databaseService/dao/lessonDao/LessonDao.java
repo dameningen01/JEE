@@ -215,6 +215,9 @@ public class LessonDao implements IntLessonDao{
 				lr.add(resultats.getString("r.abrev"));
 				lr.add(resultats.getString("s.abrev"));
 				lr.add(resultats.getString("info"));
+				lr.add(resultats.getString("c.free_time"));
+				lr.add(resultats.getString("t.free_time"));
+				lr.add(resultats.getString("c.color"));
 			}
 			
 		} catch (SQLException e) {
