@@ -16,6 +16,16 @@ public class Lesson implements java.io.Serializable{
 	private String lesson_link;
 	private String color;
 	
+	//Details select fields
+	private String teacher_name;
+	private String info;
+	private String room_abrev;
+	private String subject_abrev;
+	private String class_freetime;
+	private String teacher_freetime;
+	private String class_color;
+	
+	
 	//Constructeur pour le test de la requette DELETE et SELECT (on n'a besoin que du ID)
 	public Lesson(Long id) {
 		this.id = id;
@@ -112,5 +122,63 @@ public class Lesson implements java.io.Serializable{
 	public void setLessonColor(String color) {
 		this.color = color;
 	}
+	
+	//getters and setters for details select variables
 
+	public String getLessonTeacherName() {
+		return teacher_name;
+	}
+
+	public void setLessonTeacherName(String teacher_name) {
+		this.teacher_name = teacher_name;
+	}
+
+	public String getLessonInfo() {
+		return info;
+	}
+
+	public void setLessonInfo(String info) {
+		this.info = info;
+	}
+
+	public String getLessonRoomAbrev() {
+		return room_abrev;
+	}
+
+	public void setLessonRoomAbrev(String room_abrev) {
+		this.room_abrev = room_abrev;
+	}
+
+	public String getLessonSubjectAbrev() {
+		return subject_abrev;
+	}
+
+	public void setLessonSubjectAbrev(String subject_abrev) {
+		this.subject_abrev = subject_abrev;
+	}
+
+	public String getLessonClassFreetime() {
+		return class_freetime;
+	}
+
+	public void setLessonClassFreetime(String class_freetime) {
+		this.class_freetime = class_freetime;
+	}
+
+	public String getLessonTeacherFreetime() {
+		return teacher_freetime;
+	}
+
+	public void setLessonTeacherFreetime(String teacher_freetime) {
+		this.teacher_freetime = teacher_freetime;
+	}
+
+	public String getLessonClassColor() {
+		return class_color;
+	}
+
+	public void setLessonClassColor(String class_color) {
+		this.class_color = class_color;
+	}
+	
 }
