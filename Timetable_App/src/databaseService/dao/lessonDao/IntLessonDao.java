@@ -12,5 +12,5 @@ public interface IntLessonDao {
 	public boolean updateLesson(Lesson ls);
 	public List<Lesson> selectLesson(Lesson ls);
 	public List<Lesson> selectUniqueLessonTimetable(Lesson ls);
-	public ArrayList<String> selectDetailsLesson(Lesson ls);
+	public List<Lesson> selectDetailsLesson(Lesson ls);
 }

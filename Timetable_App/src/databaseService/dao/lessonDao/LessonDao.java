@@ -171,6 +171,7 @@ public class LessonDao implements IntLessonDao{
 		return list;
 	}
 	
+<<<<<<< HEAD
 	
 
 	@SuppressWarnings("null")
@@ -187,36 +188,45 @@ public class LessonDao implements IntLessonDao{
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		ArrayList<String> lr = new ArrayList<String>();
+=======
+	public List<Lesson> selectDetailsLesson(Lesson ls){
+		
+		ConnectionManager cm = ConnectionManager.getInstance();
+		Connection c = null;
+		List<Lesson> lr = new ArrayList<Lesson>();
+>>>>>>> e39ee7d05c3d300cb260308be99d8583d5f7a8dd
 		try {
 			c = cm.openConnection();
 			String sql = "SELECT l.id, l.teacher_id, t.name, l.class_id, concat (f.year, f.abrev, c.group_num) as info , l.room_id, r.abrev, l.subject_id, s.abrev, l.total_lessons, l.timetable_id, l.lesson_occ, l.lesson_link, l.color, c.free_time, t.free_time, c.color FROM  lesson l, teacher t, class c, faculty f, room r, subject s, timetable tb WHERE  l.teacher_id = t.id AND l.class_id = c.id AND c.faculty_id = f.id AND  l.room_id = r.id AND l.subject_id = s.id AND l.timetable_id = tb.id ; ";
 			
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
+<<<<<<< HEAD
+=======
+			
+>>>>>>> e39ee7d05c3d300cb260308be99d8583d5f7a8dd
 			
 			while(resultats.next()) {
-				s1.substring((int) resultats.getLong("l.id"));
-				s2.substring((int) resultats.getLong("l.teacher_id"));
-				s3.substring((int)resultats.getLong("l.class_id"));
-				s4.substring((int)resultats.getLong("l.room_id"));
-				s5.substring((int)resultats.getLong("l.subject_id"));
-				s6.substring((int)resultats.getLong("l.timetable_id"));
-				s7.substring((int)resultats.getInt("l.total_lessons"));
+				Lesson lsl = new Lesson();
+				lsl.setLessonId(resultats.getLong("l.id"));
+				lsl.setLessonTeacherFk(resultats.getLong("l.teacher_id"));
+				lsl.setLessonTeacherName(resultats.getString("t.name"));
+				lsl.setLessonClassFk(resultats.getLong("l.class_id"));
+				lsl.setLessonInfo(resultats.getString("info"));
+				lsl.setLessonRoomFk(resultats.getLong("l.room_id"));
+				lsl.setLessonRoomAbrev(resultats.getString("r.abrev"));
+				lsl.setLessonSubjectFk(resultats.getLong("l.subject_id"));
+				lsl.setLessonSubjectAbrev(resultats.getString("s.abrev"));
+				lsl.setLessonTimetableFk(resultats.getLong("l.timetable_id"));
+				lsl.setTotalLessons(resultats.getInt("l.total_lessons"));
+				lsl.setLessonOcc(resultats.getString("l.lesson_occ"));
+				lsl.setLessonLink(resultats.getString("l.lesson_link"));
+				lsl.setLessonColor(resultats.getString("l.color"));
+				lsl.setLessonTeacherFreetime(resultats.getString("t.free_time"));
+				lsl.setLessonClassFreetime(resultats.getString("c.free_time"));
+				lsl.setLessonClassColor(resultats.getString("c.color"));
 				
-				lr.add(s1);
-				lr.add(s2);
-				lr.add(s3);
-				lr.add(s4);
-				lr.add(s5);
-				lr.add(s6);
-				lr.add(s7);
-				lr.add(resultats.getString("l.lesson_occ"));
-				lr.add(resultats.getString("l.lesson_link"));
-				lr.add(resultats.getString("l.color"));
-				lr.add(resultats.getString("t.name"));
-				lr.add(resultats.getString("r.abrev"));
-				lr.add(resultats.getString("s.abrev"));
-				lr.add(resultats.getString("info"));
+				lr.add(lsl);
 			}
 			
 		} catch (SQLException e) {
