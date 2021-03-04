@@ -86,7 +86,7 @@ public class FacultyDao implements IntFacultyDao{
 			if(f.getFacultyAbrev() != null) {
 				sql+= " AND ABREV = '" + f.getFacultyAbrev()+ "'";
 			}
-			if(f.getFacultyYear() != null) {
+			if(f.getFacultyYear() != 0 ) {
 				sql+= " AND Year = '" + f.getFacultyYear()+ "'";
 			}
 			
@@ -97,7 +97,7 @@ public class FacultyDao implements IntFacultyDao{
 				fl.setFacultyId(resultats.getLong("Id"));
 				fl.setFacultyName(resultats.getString("name"));
 				fl.setFacultyAbrev(resultats.getString("abrev"));
-				fl.setFacultyYear(resultats.getString("year"));
+				fl.setFacultyYear(resultats.getInt("year"));
 				
 				list.add(fl);
 			}
