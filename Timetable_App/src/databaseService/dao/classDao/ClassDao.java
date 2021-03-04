@@ -18,7 +18,7 @@ public class ClassDao implements IntClassDao{
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO CLASS (faculty_id,group,free_time,color)VALUES ('"+cl.getClassFacultyFk()+"','"+cl.getClassGroup()+"','"+cl.getClassFreeTime()+"','"+cl.getClassColor()+"');";
+			String sql = "INSERT INTO CLASS (faculty_id,group_num,free_time,color)VALUES ('"+cl.getClassFacultyFk()+"','"+cl.getClassGroup()+"','"+cl.getClassFreeTime()+"','"+cl.getClassColor()+"');";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
