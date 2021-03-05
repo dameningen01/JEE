@@ -11,6 +11,9 @@ public class Class implements java.io.Serializable{
 	private String free_time;
 	private String color;
 	
+	// for select faculty name from class
+	private String class_faculty_name;
+	
 	//Constructeur pour le test de la requette DELETE et SELECT (on n'a besoin que du ID)
 		public Class(Long id) {
 		this.id = id;
@@ -66,6 +69,16 @@ public class Class implements java.io.Serializable{
 	}
 	public void setClassColor(String color) {
 		this.color = color;
+	}
+	
+	// for select faculty name from class
+
+	public String getClassFacultyName() {
+		return class_faculty_name;
+	}
+
+	public void setClassFacultyName(String class_faculty_name) {
+		this.class_faculty_name = class_faculty_name;
 	}
 
 }

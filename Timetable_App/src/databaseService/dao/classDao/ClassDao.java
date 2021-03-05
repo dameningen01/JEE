@@ -117,4 +117,30 @@ public class ClassDao implements IntClassDao{
 		
 	}
 
+	@Override
+	public List<Class> selectClassFacultyName(Class cl) {
+		ConnectionManager cm = ConnectionManager.getInstance();
+		Connection c = null;
+		List<Class> list = new ArrayList<Class>();
+		try {
+			c = cm.openConnection();
+			String sql = "SELECT name FROM CLASS c, FACULTY f WHERE f.id = c.faculty_id ; ";
+			Statement st = c.createStatement();
+			ResultSet resultats = st.executeQuery(sql);
+			while(resultats.next()) {
+				Class cll = new Class();
+				cll.setClassFacultyName(resultats.getString("name"));
+				list.add(cll);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("statement failed to parse");
+			e.printStackTrace();
+		}finally {
+			cm.closeConnection(c);
+		}
+		return list;
+	}
+
 }
