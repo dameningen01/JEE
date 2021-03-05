@@ -77,7 +77,7 @@ public class ClassDao implements IntClassDao{
 		try {
 			c = cm.openConnection();
 			String sql = "SELECT * FROM CLASS WHERE 1=1 ";
-			if(cl.getClassId() != null) {
+			/*if(cl.getClassId() != null) {
 				sql+= " AND ID = '" + cl.getClassId()+ "'";
 			}
 			if(cl.getClassFacultyFk() != null) {
@@ -91,7 +91,7 @@ public class ClassDao implements IntClassDao{
 			}
 			if(cl.getClassColor() != null) {
 				sql+= " AND COLOR = '" + cl.getClassColor()+ "'";
-			}
+			}*/
 			sql+= ";";
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
@@ -99,7 +99,7 @@ public class ClassDao implements IntClassDao{
 				Class cll = new Class();
 				cll.setClassId(resultats.getLong("Id"));
 				cll.setClassFacultyFk(resultats.getLong("faculty_id"));
-				cll.setClassGroup(resultats.getInt("group"));
+				cll.setClassGroup(resultats.getInt("group_num"));
 				cll.setClassFreeTime(resultats.getString("free_time"));
 				cll.setClassColor(resultats.getString("color"));
 				

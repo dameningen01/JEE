@@ -86,7 +86,7 @@ private IntSubjectDao subjectDao ;
     	Subject subject = new Subject();
     	List<Subject> listsubject = subjectDao.selectSubject(subject);
     	request.setAttribute("listsubject", listsubject);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/subjectList.jsp").forward(request, response);
     }
     
     /**
@@ -95,7 +95,7 @@ private IntSubjectDao subjectDao ;
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/subjectForm.jsp").forward(request, response);
     }
     
     /**
@@ -110,7 +110,7 @@ private IntSubjectDao subjectDao ;
     	List<Subject> listsubject = subjectDao.selectSubject(subject);
     	Subject existingsubject = listsubject.get(0);
     	request.setAttribute("subject", existingsubject);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/subjectForm.jsp").forward(request, response);
     }
     
     /**

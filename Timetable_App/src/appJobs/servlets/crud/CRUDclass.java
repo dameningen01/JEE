@@ -88,7 +88,8 @@ private IntClassDao classDao ;
     	Class cl = new Class();
     	List<Class> listClass = classDao.selectClass(cl);
     	request.setAttribute("listClass", listClass);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	System.out.println(listClass);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/classList.jsp").forward(request, response);
     }
     
     /**
@@ -97,7 +98,7 @@ private IntClassDao classDao ;
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/classForm.jsp").forward(request, response);
     }
     
     /**
@@ -112,7 +113,7 @@ private IntClassDao classDao ;
     	List<Class> listClass = classDao.selectClass(cl);
     	Class existingclass= listClass.get(0);
     	request.setAttribute("class", existingclass);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/classForm.jsp").forward(request, response);
     }
     
     /**

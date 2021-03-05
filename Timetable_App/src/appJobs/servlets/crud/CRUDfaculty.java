@@ -90,7 +90,7 @@ public class CRUDfaculty extends HttpServlet {
     	Faculty fac = new Faculty();
     	List<Faculty> listFaculty = facultyDao.selectFaculty(fac);
     	request.setAttribute("listFaculty", listFaculty);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/facultyList.jsp").forward(request, response);
     }
     
     /**
@@ -99,7 +99,7 @@ public class CRUDfaculty extends HttpServlet {
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/facultyForm.jsp").forward(request, response);
     }
     
     /**
@@ -114,7 +114,7 @@ public class CRUDfaculty extends HttpServlet {
     	List<Faculty> listFaculty = facultyDao.selectFaculty(fac);
     	Faculty existingfaculty = listFaculty.get(0);
     	request.setAttribute("faculty", existingfaculty);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/facultyForm.jsp").forward(request, response);
     }
     
     /**
@@ -132,7 +132,7 @@ public class CRUDfaculty extends HttpServlet {
 	    	
     	String name = request.getParameter("name");
     	String abrev = request.getParameter("abrev");
-		String year = request.getParameter("year");
+		int year = Integer .parseInt ( request.getParameter("year"));
 	
 		Faculty fac = new Faculty();
 		
@@ -156,7 +156,7 @@ public class CRUDfaculty extends HttpServlet {
 		
 		String name = request.getParameter("name");
     	String abrev = request.getParameter("abrev");
-		String year = request.getParameter("year");
+    	int year = Integer .parseInt ( request.getParameter("year"));
 				
 		Faculty fac = new Faculty(id, name , abrev, year);
 		facultyDao.updateFaculty(fac);

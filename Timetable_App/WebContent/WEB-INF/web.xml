@@ -134,4 +134,58 @@
 		    <url-pattern>/teacher/*</url-pattern>
 	   </servlet-mapping>
 	   
+	   <servlet>
+		    <servlet-name>CRUDclass</servlet-name>
+		    <servlet-class>appJobs.servlets.crud.CRUDclass</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>CRUDclass</servlet-name>
+		    <url-pattern>/class/*</url-pattern>
+	   </servlet-mapping>
+	   
+	   <servlet>
+		    <servlet-name>CRUDfaculty</servlet-name>
+		    <servlet-class>appJobs.servlets.crud.CRUDfaculty</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>CRUDfaculty</servlet-name>
+		    <url-pattern>/faculty/*</url-pattern>
+	   </servlet-mapping>
+	   
+	   <servlet>
+		    <servlet-name>CRUDlesson</servlet-name>
+		    <servlet-class>appJobs.servlets.crud.CRUDlesson</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>CRUDlesson</servlet-name>
+		    <url-pattern>/lesson/*</url-pattern>
+	   </servlet-mapping>
+	   
+	   <servlet>
+		    <servlet-name>CRUDroom</servlet-name>
+		    <servlet-class>appJobs.servlets.crud.CRUDroom</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>CRUDroom</servlet-name>
+		    <url-pattern>/room/*</url-pattern>
+	   </servlet-mapping>
+	   
+	   <servlet>
+		    <servlet-name>CRUDsubject</servlet-name>
+		    <servlet-class>appJobs.servlets.crud.CRUDsubject</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>CRUDsubject</servlet-name>
+		    <url-pattern>/subject/*</url-pattern>
+	   </servlet-mapping>
+	   
+	    <servlet>
+		    <servlet-name>CRUDtimetable</servlet-name>
+		    <servlet-class>appJobs.servlets.crud.CRUDtimetable</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>CRUDtimetable</servlet-name>
+		    <url-pattern>/timetable/*</url-pattern>
+	   </servlet-mapping>
+	   
 </web-app>

@@ -88,7 +88,7 @@ private IntTimetableDao timetableDao ;
     	Timetable timetable = new Timetable();
     	List<Timetable> listtimetable = timetableDao.selectTimetable(timetable);
     	request.setAttribute("listtimetable", listtimetable);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/timetableList.jsp").forward(request, response);
     }
     
     /**
@@ -97,7 +97,7 @@ private IntTimetableDao timetableDao ;
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/timetableForm.jsp").forward(request, response);
     }
     
     /**
@@ -112,7 +112,7 @@ private IntTimetableDao timetableDao ;
     	List<Timetable> listtimetable = timetableDao.selectTimetable(timetable);
     	Timetable existingtimetable = listtimetable.get(0);
     	request.setAttribute("timetable", existingtimetable);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/timetableForm.jsp").forward(request, response);
     }
     
     /**

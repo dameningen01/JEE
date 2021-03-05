@@ -87,7 +87,7 @@ private IntLessonDao lessonDao ;
     	Lesson lesson = new Lesson();
     	List<Lesson> listlesson = lessonDao.selectLesson(lesson);
     	request.setAttribute("listlesson", listlesson);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/lessonList.jsp").forward(request, response);
     }
     
     /**
@@ -96,7 +96,7 @@ private IntLessonDao lessonDao ;
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/lessonForm.jsp").forward(request, response);
     }
     
     /**
@@ -111,7 +111,7 @@ private IntLessonDao lessonDao ;
     	List<Lesson> listlesson = lessonDao.selectLesson(lesson);
     	Lesson existinglesson = listlesson.get(0);
     	request.setAttribute("lesson", existinglesson);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/lessonForm.jsp").forward(request, response);
     }
     
     /**

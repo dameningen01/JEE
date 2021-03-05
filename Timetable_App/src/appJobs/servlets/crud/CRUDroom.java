@@ -87,7 +87,7 @@ public class CRUDroom extends HttpServlet {
     	Room room = new Room();
     	List<Room> listRoom = roomDao.selectRoom(room);
     	request.setAttribute("listRoom", listRoom);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/roomList.jsp").forward(request, response);
     }
     
     /**
@@ -96,7 +96,7 @@ public class CRUDroom extends HttpServlet {
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/roomForm.jsp").forward(request, response);
     }
     
     /**
@@ -111,7 +111,7 @@ public class CRUDroom extends HttpServlet {
     	List<Room> listRoom = roomDao.selectRoom(room);
     	Room existingroom = listRoom.get(0);
     	request.setAttribute("room", existingroom);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/roomForm.jsp").forward(request, response);
     }
     
     /**

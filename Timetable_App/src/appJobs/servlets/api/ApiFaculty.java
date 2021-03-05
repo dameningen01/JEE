@@ -61,7 +61,8 @@ public class ApiFaculty extends HttpServlet {
 		}
 		else
 		{
-			String year = request.getParameter("year");
+			int year = Integer .parseInt ( request.getParameter("year"));
+			//String year = request.getParameter("year");
 			faculty2 = new Faculty();
 			faculty2.setFacultyYear(year);
 			

@@ -92,7 +92,7 @@ public class CRUDteacher extends HttpServlet {
     	Teacher t = new Teacher();
     	List<Teacher> listTeacher = teacherDao.selectTeacher(t);
     	request.setAttribute("listTeacher", listTeacher);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/teacherList.jsp").forward(request, response);
     }
     
     /**
@@ -101,7 +101,7 @@ public class CRUDteacher extends HttpServlet {
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/teacherForm.jsp").forward(request, response);
     }
     
     /**
@@ -116,7 +116,7 @@ public class CRUDteacher extends HttpServlet {
     	List<Teacher> listTeacher = teacherDao.selectTeacher(t);
     	Teacher existingteacher = listTeacher.get(0);
     	request.setAttribute("teacher", existingteacher);
-    	this.getServletContext().getRequestDispatcher("     ").forward(request, response);
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/teacherForm.jsp").forward(request, response);
     }
     
     /**
