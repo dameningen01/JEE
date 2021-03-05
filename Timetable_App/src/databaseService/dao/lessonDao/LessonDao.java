@@ -171,41 +171,25 @@ public class LessonDao implements IntLessonDao{
 		return list;
 	}
 	
-<<<<<<< HEAD
-	
+
 
 	@SuppressWarnings("null")
 	@Override
-	public ArrayList<String> selectDetailsLesson(Lesson ls) {
-		String s1 = null;
-		String s2 = null;
-		String s3 = null;
-		String s4 = null;
-		String s5 = null;
-		String s6 = null;
-		String s7 = null;
+
 		
-		ConnectionManager cm = ConnectionManager.getInstance();
-		Connection c = null;
-		ArrayList<String> lr = new ArrayList<String>();
-=======
 	public List<Lesson> selectDetailsLesson(Lesson ls){
 		
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
 		List<Lesson> lr = new ArrayList<Lesson>();
->>>>>>> e39ee7d05c3d300cb260308be99d8583d5f7a8dd
+
 		try {
 			c = cm.openConnection();
 			String sql = "SELECT l.id, l.teacher_id, t.name, l.class_id, concat (f.year, f.abrev, c.group_num) as info , l.room_id, r.abrev, l.subject_id, s.abrev, l.total_lessons, l.timetable_id, l.lesson_occ, l.lesson_link, l.color, c.free_time, t.free_time, c.color FROM  lesson l, teacher t, class c, faculty f, room r, subject s, timetable tb WHERE  l.teacher_id = t.id AND l.class_id = c.id AND c.faculty_id = f.id AND  l.room_id = r.id AND l.subject_id = s.id AND l.timetable_id = tb.id ; ";
 			
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
-<<<<<<< HEAD
-=======
-			
->>>>>>> e39ee7d05c3d300cb260308be99d8583d5f7a8dd
-			
+
 			while(resultats.next()) {
 				Lesson lsl = new Lesson();
 				lsl.setLessonId(resultats.getLong("l.id"));
