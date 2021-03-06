@@ -1,0 +1,161 @@
+@startuml
+class User{
+  Id_user
+  Username
+  User_type
+  Password
+
+  Edit()
+  Remove()
+  Display()
+  Add()
+}
+class Faculty{
+  Id_Faculty
+  Name
+  Abrev
+  Year
+
+  Display()
+  Add()
+}
+class Room{
+  Id_room
+  Free_time
+  Abrev
+  
+  Edit()
+  Remove()
+  Display()
+  Add()
+}
+class Class{
+  Id_class
+  Id_faculty
+  Group
+  Free_time
+  
+  Remove()
+  Add()
+}
+class Timetable{
+  Id_timetable
+  Id_user
+  Description
+  Nb_days
+  Nb_periods
+  Hours_per_periods
+  Free_time
+  Summary
+  
+  Edit()
+  Remove()
+  Display()
+  Add()
+}
+class Cluster{
+  Id_cluster
+  Id_timetable
+  
+  Remove()
+  Add()
+}
+class Lesson{
+  Id_class
+  Id_teacher
+  Id_room
+  Id_subject
+  Total_lessons
+  Id_timetable
+                                             
+  Display()
+  Add()
+}
+class Subject{
+  Id_subject
+  Module
+  Sub_module
+  Type
+  Abrev
+
+  Add()
+  Remove()                                          
+  Display()
+  Add()
+}
+class ClusterLesson{
+  Id_claster
+  Id_lesson
+                                             
+  Remove()
+  Add()
+}
+class Teacher{
+  Id_teacher
+  Module
+  Sub_module
+  Type
+  Abrev
+
+  Add()
+  Remove()                                          
+  Display()
+  Add()
+
+
+}
+Timetable"1..*" -->"1..*" User
+Timetable"1..*" -->"1..*" Cluster
+ClusterLesson "1..*" -->"1..*" Lesson
+Faculty "1..*" *-- "1" Cluster
+Teacher "1..*" -- "1..*"Subject
+Subject "1..*"--"1..*" Lesson
+Lesson "1..*"--"1..*" Class
+Lesson "1..*"-- "1..*" Room
+@enduml
+                                             
+  Display()
+  Add()
+}
+class Subject{
+  Id_subject
+  Module
+  Sub_module
+  Type
+  Abrev
+
+  Add()
+  Remove()                                          
+  Display()
+  Add()
+}
+class ClusterLesson{
+  Id_claster
+  Id_lesson
+                                             
+  Remove()
+  Add()
+}
+class Teacher{
+  Id_teacher
+  Module
+  Sub_module
+  Type
+  Abrev
+
+  Add()
+  Remove()                                          
+  Display()
+  Add()
+
+
+}
+Timetable"1..*" -->"1..*" User
+Timetable"1..*" -->"1..*" Cluster
+ClusterLesson "1..*" -->"1..*" Lesson
+Faculty "1..*" *-- "0..1" Cluster
+Teacher "1..*" -- "1..*"Subject
+Subject "1..*"--"1..*" Lesson
+Lesson "1..*"--"1..*" Class
+Lesson "1..*"-- "1..*" Room
+@enduml
