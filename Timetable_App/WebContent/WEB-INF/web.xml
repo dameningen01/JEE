@@ -18,6 +18,8 @@
     <servlet-name>default</servlet-name>
     <url-pattern>/media/*</url-pattern>
 </servlet-mapping>-->
+
+ 
   
 	  <servlet>
 	    <servlet-name>Home</servlet-name>

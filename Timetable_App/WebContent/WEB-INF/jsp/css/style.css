@@ -1,0 +1,414 @@
+/*?defaults*/
+
+
+/* .show {
+    display: block;
+}
+
+.dropdown-trig {
+    cursor: pointer;
+} */
+td, th {
+    text-align: center;
+}
+body, html {
+    height: 100%;
+  }
+.button {
+    cursor: pointer;
+    background-color: #fff;
+    color: #777;
+    transition: background-color .2s ease-out
+}
+
+.button:hover {
+    background-color: #f2a4a8;
+    color: whitesmoke !important;
+}
+
+.card-image-center {
+    max-height: 100px;
+    max-width: 100px;
+    margin: 0 1rem 0 1rem;
+}
+
+
+/*?navbar extra syles*/
+
+.brand-logo img {
+    position: relative;
+    object-fit: scale-down;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    width: 60px;
+}
+
+.brand-logo::after {
+    content: 'Advisoris';
+    font-size: 1.5rem;
+    color: whitesmoke;
+    position: absolute;
+    opacity: 0;
+    padding-left: 0.5rem;
+    transition: opacity 0.5s;
+}
+
+@media (max-width:992.5px) {
+    header, main, footer {
+        padding: 1rem 2rem 1rem 2rem !important;
+    }
+}
+
+
+/*breadcrumbs*/
+
+nav.clean {
+    background: none;
+    box-shadow: none;
+}
+
+nav.clean .breadcrumb {
+    color: black;
+}
+
+nav.clean .breadcrumb:before {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+nav.clean .breadcrumb:last-child {
+    color: #ee6e73;
+}
+
+@media (min-width: 992.5px) {
+    .hamburger{
+        display: none !important;
+    }
+    .sidenav-close{
+        display: none !important;
+    }
+} 
+
+
+/*?Animations*/
+
+@-webkit-keyframes fadeRight {
+    0% {
+        -webkit-transform: translateX(30px);
+        transform: translateX(30px);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1
+    }
+}
+
+@keyframes fadeRight {
+    0% {
+        -webkit-transform: translateX(30px);
+        transform: translateX(30px);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1
+    }
+}
+
+.animate.fadeRight {
+    -webkit-animation: fadeRight;
+    animation: fadeRight;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fadeUp {
+    0% {
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+
+.animate.fadeUp {
+    -webkit-animation: fadeUp;
+    animation: fadeUp;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.animate.fade {
+    -webkit-animation: fade;
+    animation: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+}
+
+
+/*?background gradients*/
+
+.gradient-45deg-red-pink {
+    background: -webkit-linear-gradient(45deg, #ff5252, #f48fb1)!important;
+    background: linear-gradient(45deg, #ff5252, #f48fb1)!important
+}
+
+.gradient-45deg-red-pink.gradient-shadow {
+    box-shadow: 0 6px 20px 0 rgba(244, 143, 177, .5)!important
+}
+
+
+/*? numbers cards*/
+
+.background-round {
+    padding: 15px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .18);
+}
+
+.rounded {
+    border-radius: 10px !important;
+}
+
+
+/*? extras*/
+
+.padding-4 {
+    padding: 4%!important
+}
+
+.min-height-100 {
+    min-height: 100px!important
+}
+
+.top-inherit {
+    top: inherit !important;
+}
+
+
+/*?admin specific styles*/
+/* 
+#redo::after {
+    content: 'Redo';
+    display: block;
+}
+
+#redo:hover::after {
+    size: 50px;
+}
+
+#undo::after {
+    content: 'Undo';
+    display: block;
+}
+
+#undo:hover::after {
+    size: 50px;
+} */
+
+#add_dir::after {
+    content: 'add folder';
+    display: block;
+}
+
+#add_dir:hover::after {
+    size: 50px;
+}
+
+#add_file::after {
+    content: 'add file';
+    display: block;
+}
+
+#add_file:hover::after {
+    size: 50px;
+}
+
+#delete::after {
+    content: 'delete element';
+    display: block;
+}
+
+#edit::after {
+    content: 'edit element';
+    display: block;
+}
+
+.navigation {
+    display: flex;
+    margin: 1.5rem;
+}
+#path{
+    font-size: 15px;
+    margin: 0 2rem;
+    min-width:min(500px,100vw);
+}
+.hidden {
+    display: none;
+}
+/*forms*/
+.forms{
+    margin:1rem;
+    max-width: 70vw;
+    border: 5px block #777;
+}
+
+/*FS*/
+.FS-action-buttons{
+    max-width: min(500px,80vw);   
+}
+.FS-action-buttons .btn{
+    max-width: 100px;
+}
+.FS-table{
+    margin-top:1rem;
+    max-width: 90vw;
+    
+}
+.FS-table thead tr{
+    background-color: #26a69a;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+}
+.FS-table td{
+    border:2px solid #ddd;
+}
+.ico{
+    color:#71c5bd;
+}
+.selected {
+    background-color: #7ad0c7;
+    color: #f3f3f3;
+}
+.selected i{
+    color:#f3f3f3;
+}
+.collapsible-element:hover{
+    background-color: #f2a4a8 !important;
+}
+.collapsible-element:hover a{
+    color: white !important;
+}
+.card{
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card-image{
+    border-radius: 10px;
+}
+.card:hover{
+    box-shadow: 2px 10px 9px 2px rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+    opacity: 0.85;
+    border-radius: 25px;
+}
+#hamburger_container{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.hamburger {
+    padding: 15px 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible; }
+    .hamburger:hover {
+      opacity: 0.7; }
+    .hamburger.is-active:hover {
+      opacity: 0.7; }
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+      background-color: #000; }
+  
+  .hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative; }
+  
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px; }
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      width: 40px;
+      height: 4px;
+      background-color: #b57ebe;
+      border-radius: 4px;
+      position: absolute;
+      transition-property: transform;
+      transition-duration: 0.15s;
+      transition-timing-function: ease; }
+    .hamburger-inner::before, .hamburger-inner::after {
+      content: "";
+      display: block; }
+    .hamburger-inner::before {
+      top: -10px; }
+    .hamburger-inner::after {
+      bottom: -10px; }
+
+
+
+.parallax {
+  /* The image used */
+  background-image: url("/img/background-618226.png");
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+/* @media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  } */

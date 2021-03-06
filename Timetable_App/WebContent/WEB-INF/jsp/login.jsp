@@ -8,14 +8,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/x-icon" >
         
+       
         
-         <!--<link href="<c:url value="/WEB-INF/css/material icons.css" />"  rel="stylesheet" type = "text/css">-->
+         <!--<link href="<c:url value="/WEB-INF/css/material icons.css" />"  rel="stylesheet" type = "text/css">
         
          <link rel="stylesheet" href="<c:url value="/WEB-INF/css/materialize.min.css" />"  type = "text/css">
         
-        <link rel="stylesheet" href="<c:url value="/WEB-INF/css/style.css" />"  type = "text/css" >
+        <link rel="stylesheet" href="<c:url value="/WEB-INF/css/style.css" />"  type = "text/css" >-->
         
-        <!-- <style><%@include file="/WEB-INF/css/material icons.css"%></style>
+         <link rel="stylesheet" type="text/css" href="css/material icons.css"> 
+          <link rel="stylesheet" type="text/css" href="css/materialize.min.css"> 
+           <link rel="stylesheet" type="text/css" href="css/style.css"> 
+        
+         <!--<style><%@include file="/WEB-INF/css/material icons.css"%></style>
         <style><%@include file="/WEB-INF/css/materialize.min.css"%></style>
         <style><%@include file="/WEB-INF/css/style.css"%></style> -->
         
@@ -58,6 +63,7 @@
             }
     </style>
     <div class="section"></div>
+   <!-- <img src='<c:url value="../img/logo.png"></c:url>' />   -->   
     <main>
         <center>
             <div style="display: flex;flex-direction: row-reverse;">

@@ -1,0 +1,215 @@
+.timetable{
+    margin:1rem;
+    text-align: -webkit-center;
+
+}
+.classe{
+    background-color: var(--class_bg);
+    color: #FFFFFF;
+}
+.TT_container{
+    border: 2px solid #696969;
+}
+th{
+    border: 1px solid #696969;
+}
+
+#TT_body td{
+    border: 1px solid #696969;
+}
+.divide{
+    border-top: 3px solid #2f2f2f;
+}
+.day{
+    background-color: #fbae6f;
+    color: #FFFFFF;
+}
+.sep{
+    background-color:#2f2f2f !important;
+}
+/* the leftover cards */
+.leftovers{
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+
+}
+.button-list{
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3rem;
+}
+.leftovers-container{
+  background-color: rgba(255, 255, 255, 0.7);
+  opacity: 0.8; margin: 4rem;
+}
+/*Toast stuff*/
+#toast-container {
+    top: 0 !important;
+    right: 0 !important;
+    max-width: 20rem;
+  }
+/*the lesson cards*/
+.card {
+    --background:#FFFFFF;
+    --text:black;
+    position: relative;
+    height: 16vh;
+    width: 10vw;
+    box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.05);
+  }
+  .card .multi-button {
+    z-index: 0;
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    border-radius: 100%;
+    width: 0rem;
+    height: 0rem;
+    transform: translate(-50%, -50%);
+    transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+  }
+  .card .multi-button button {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 100%;
+    background: var(--background);
+    color: var(--text);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+    box-shadow: 0 0 0rem -0.25rem var(--background);
+  }
+  .card .multi-button button:hover {
+    background: var(--text);
+    color: var(--background);
+    box-shadow: 0 0 1rem -0.25rem var(--background);
+  }
+  .card .multi-button button:first-child:nth-last-child(1):nth-child(1), .card .multi-button button:first-child:nth-last-child(1) ~ *:nth-child(1) {
+    left: 25%;
+    top: 25%;
+  }
+  .card .multi-button button:first-child:nth-last-child(2):nth-child(1), .card .multi-button button:first-child:nth-last-child(2) ~ *:nth-child(1) {
+    left: 37.5%;
+    top: 18.75%;
+  }
+  .card .multi-button button:first-child:nth-last-child(2):nth-child(2), .card .multi-button button:first-child:nth-last-child(2) ~ *:nth-child(2) {
+    left: 18.75%;
+    top: 37.5%;
+  }
+  .card .multi-button button:first-child:nth-last-child(3):nth-child(1), .card .multi-button button:first-child:nth-last-child(3) ~ *:nth-child(1) {
+    left: 50%;
+    top: 15.625%;
+  }
+  .card .multi-button button:first-child:nth-last-child(3):nth-child(2), .card .multi-button button:first-child:nth-last-child(3) ~ *:nth-child(2) {
+    left: 25%;
+    top: 25%;
+  }
+  .card .multi-button button:first-child:nth-last-child(3):nth-child(3), .card .multi-button button:first-child:nth-last-child(3) ~ *:nth-child(3) {
+    left: 15.625%;
+    top: 50%;
+  }
+  .card .multi-button button:first-child:nth-last-child(4):nth-child(1), .card .multi-button button:first-child:nth-last-child(4) ~ *:nth-child(1) {
+    left: 62.5%;
+    top: 18.75%;
+  }
+  .card .multi-button button:first-child:nth-last-child(4):nth-child(2), .card .multi-button button:first-child:nth-last-child(4) ~ *:nth-child(2) {
+    left: 37.5%;
+    top: 18.75%;
+  }
+  .card .multi-button button:first-child:nth-last-child(4):nth-child(3), .card .multi-button button:first-child:nth-last-child(4) ~ *:nth-child(3) {
+    left: 18.75%;
+    top: 37.5%;
+  }
+  .card .multi-button button:first-child:nth-last-child(4):nth-child(4), .card .multi-button button:first-child:nth-last-child(4) ~ *:nth-child(4) {
+    left: 18.75%;
+    top: 62.5%;
+  }
+  .card .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    text-align: center;
+    background: var(--background);
+    color: var(--text);
+  }
+  .card .gridd{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  .card .container p {
+    margin: 0 ! important;
+  }
+  .card:hover .multi-button, .card .multi-button:focus-within {
+    width: 10rem;
+    height: 10rem;
+  }
+.drag{
+    cursor: move !important;
+}
+.dragging{
+    opacity: 0.75;
+    filter: grayscale();
+    cursor: move !important;
+}
+.dropzone{
+    background-color: #fdadae
+}
+@media only screen and (max-width: 992.5px){
+    .card .gridd{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2px;
+      }
+      /* .card {
+        --background:#FFFFFF;
+        --text:black;
+        position: relative;
+        height: 20vh;
+        width: 10vw;
+        box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.05);
+      } */
+      
+      .button-list{
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+      }
+      .leftovers{
+        opacity: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);}
+      .timetable{
+        margin: 0.1rem;
+      }
+      /* table{
+        overflow-x: scroll;
+        overflow-y:scroll;
+      } */
+      .card {
+        height: 16vh;
+        width: 23vw;
+      }
+      .leftovers .card{
+        height: 21vh;
+      }
+      .leftovers-container{
+        margin: 1rem;
+      }
+      
+
+}
+#TT_body .cell{
+  background-color: rgba(255, 255, 255, 0.7);
+}
+#TT_container{
+  width:80% !important;
+}
