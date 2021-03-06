@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+@startuml
+left to right direction
+Etudiant -- (Visualiser l'emploi du temps d'une classe) 
+Prof  -- (Visualiser l'emploi du temps du prof) 
+Prof  -- (Visualiser l'emploi du temps d'une classe )
+
+
+(Visualiser l'emploi du temps du prof) .> (S'authentifier) : include
+(Gérer les données ).> (S'authentifier) : include
+Admin -- (Gérer les emlpois du temps)
+(Gérer les emlpois du temps) .> (S'authentifier) : include 
+(Gérer les emlpois du temps) <|-- (Générer les emplois automatiquement)
+(Gérer les emlpois du temps) <|-- (Modifier les emlpois manuellement)
+Admin  -- (Gérer les données )
+left to right direction
+
+(Gérer groupe) .> (Gérer les données ) : extends
+(Gérer salle) .> (Gérer les données ) : extends
+(Gérer profs) .> (Gérer les données ) : extends
+(Gérer séances) .> (Gérer les données ) : extends
+Admin  -- (Visualiser l'emploi du temps d'une classe )
+Prof<|-- Admin
+@enduml
