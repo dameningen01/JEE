@@ -15,7 +15,7 @@ Une interface d’utilisation simple,  facile à manipuler pour la création des
 ## Fonctionnalités et Technique 
 
 ### Arborescence :
-![image](https://user-images.githubusercontent.com/31375294/110205517-a4251100-7e78-11eb-8bc4-deaf58cba28c.png)
+![image](https://user-images.githubusercontent.com/31375294/110205610-39c0a080-7e79-11eb-9edb-1139ea836b8c.png)
 
 ### Fonctionnalités :
 
