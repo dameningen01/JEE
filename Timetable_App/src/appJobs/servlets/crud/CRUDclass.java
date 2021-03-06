@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import databaseService.beans.Class;
+import databaseService.beans.Faculty;
 import databaseService.dao.classDao.ClassDao;
 import databaseService.dao.classDao.IntClassDao;
+import databaseService.dao.facultyDao.FacultyDao;
+import databaseService.dao.facultyDao.IntFacultyDao;
 
 /**
  * Servlet implementation class classCRUD
@@ -99,6 +102,11 @@ private IntClassDao classDao ;
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
+    	Faculty faculty = new Faculty();
+    	IntFacultyDao facultyDao = new FacultyDao();
+    	List<Faculty> listFaculties = facultyDao.selectFaculty(faculty);
+    	request.setAttribute("listFaculties", listFaculties);
+    	
     	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/classForm.jsp").forward(request, response);
     }
     
@@ -108,12 +116,21 @@ private IntClassDao classDao ;
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
     		throws SQLException, ServletException, IOException
     {
+    	
     	Long  id = Long .parseLong (request.getParameter("id"));
     	Class cl = new Class();
     	cl.setClassId(id);
     	List<Class> listClass = classDao.selectClass(cl);
     	Class existingclass= listClass.get(0);
     	request.setAttribute("cl", existingclass);
+    	
+    	
+    	Faculty faculty = new Faculty();
+    	IntFacultyDao facultyDao = new FacultyDao();
+    	List<Faculty> listFaculties = facultyDao.selectFaculty(faculty);
+    	request.setAttribute("listFaculties", listFaculties);
+    	
+    	
     	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/classForm.jsp").forward(request, response);
     }
     

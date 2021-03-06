@@ -49,12 +49,12 @@ public class ApiLesson extends HttpServlet {
 
      private Gson gson = new Gson();
      
- // "/api/lesson/?tt_id=2&class=1" or "/api/lesson/?tt_id=2" or "/api/lesson/?tt_id=2&prof=1"
+ // "/api/lesson/?tt_id=2&class=1" or      (admin et prof) "/api/lesson/?tt_id=2" get user  from session
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		/**
-		 * this function returns a list of lessons ID 
+		 * this function returns a list of lessons 
 		 */
        //List<Long> lessonsID = new ArrayList<Long>();
 		   List<Lesson> listOflessons = new ArrayList<Lesson>() ;
@@ -83,46 +83,51 @@ public class ApiLesson extends HttpServlet {
 	           	}*/
            	
            }
-    	   else if(request.getParameter("prof") != null)    //      "/api/lesson/?tt_id=2&prof=1"
+    	   else                               //      "/api/lesson/?tt_id=2"
            {
-        	   Long prof = Long.parseLong(request.getParameter("prof"));
-	           	
-	           	
-	           	L.setLessonTeacherFk(prof);
-	           	
-	           	listOflessons = lessonDao.selectLesson(L);
-	           	
-	           	/*for(Lesson lesson : listOflessons)
-	           	{
-	           		lessonsID.add(lesson.getLessonId());
-	           	}*/
+    		   
+    		   HttpSession session = request.getSession();
+    		   if(session.getAttribute("id") != null )
+    		   {
+    			   if(session.getAttribute("usertype") == "admin")
+    			   {
+    				   Timetable timetable = new Timetable();
+    	   				timetable.setTimetableId(tt);
+    	   				List<Timetable> listOftimetables;
+    	   				listOftimetables = timetableDao.selectTimetable(timetable);
+    	   				
+    	   				Timetable t = listOftimetables.get(0);
+    	   				
+    	   				if(t.getTimetableUserFk() == session.getAttribute("id") )   //cheks if timetable with id = tt_id had user_id = session user
+    	   				{
+    	   			
+    	   		           	listOflessons = lessonDao.selectLesson(L);
+    		   		           	
+    	   		         /*for(Lesson lesson : listOflessons)
+    			 	           	{
+    			 	           		lessonsID.add(lesson.getLessonId());
+    			 	           	}*/
+    	   				}
+    			   }
+    			   else if(session.getAttribute("usertype") == "prof")
+    			   {
+    				   
+    				   Long prof = (Long) session.getAttribute("id");
+    				   
+    		           	L.setLessonTeacherFk(prof);
+    		           	
+    		           	listOflessons = lessonDao.selectDetailsLesson(L);
+    		           	
+    		           	/*for(Lesson lesson : listOflessons)
+    		           	{
+    		           		lessonsID.add(lesson.getLessonId());
+    		           	}*/
+    			   }
+    		   }
+    		   
+        	   
            }
 
-           else if(request.getParameter("user") != null)   //  "/api/lesson/?tt_id" !!!!!!!!!!!!!!! mn la session
-   			{ 
-   			
-   				Timetable timetable = new Timetable();
-   				timetable.setTimetableId(tt);
-   				List<Timetable> listOftimetables;
-   				listOftimetables = timetableDao.selectTimetable(timetable);
-   				
-   				Timetable t = listOftimetables.get(0);
-   				
-   				HttpSession session = request.getSession();
-   			
-   				
-   				if(t.getTimetableUserFk() == session.getAttribute("id") )   //cheks if timetable with id = tt_id had user_id = session user
-   				{
-   			
-   		           	listOflessons = lessonDao.selectLesson(L);
-	   		           	
-   		         /*for(Lesson lesson : listOflessons)
-		 	           	{
-		 	           		lessonsID.add(lesson.getLessonId());
-		 	           	}*/
-   				}
-  
-   			}
            //System.out.println(listOflessons);
            String listOflessonsJsonString = this.gson.toJson(listOflessons);
            PrintWriter out = response.getWriter();

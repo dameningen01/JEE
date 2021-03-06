@@ -10,6 +10,14 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+ <!--  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>res/*</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/media/*</url-pattern>
+</servlet-mapping>-->
   
 	  <servlet>
 	    <servlet-name>Home</servlet-name>
@@ -19,6 +27,16 @@
 	    <servlet-name>Home</servlet-name>
 	    <url-pattern>/</url-pattern>
 	  </servlet-mapping>
+	  
+	  <servlet>
+	    <servlet-name>Landing</servlet-name>
+	    <servlet-class>appJobs.servlets.Landing</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>Landing</servlet-name>
+	    <url-pattern>/landing</url-pattern>
+	  </servlet-mapping>
+	  
 	  
 	  
 	  

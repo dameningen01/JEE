@@ -55,7 +55,14 @@ public class ApiTimetable extends HttpServlet {
      private Gson gson = new Gson();
     
 	// "/api/timetable/?class=1" or "/api/timetable/?user=1" or "/api/timetable/?prof=1"
-    
+     
+     
+     
+    //"/api/timetable/?class=1" or "/api/timetable/?id=1" directly
+     
+     //or "/api/timetable/(depends on prof or admin)" 
+     
+  
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -90,12 +97,23 @@ public class ApiTimetable extends HttpServlet {
         	}
         	
         }
+       else if(request.getParameter("id") != null)
+       {
+    	   /**
+      		 * return all  timetables from timetable where id = id
+      		 */
+    	    Timetable t = new Timetable();
+			Long id =  Long.parseLong(request.getParameter("id"));
+			t.setTimetableId(id);
+			listOfTimetables = timetableDao.selectTimetable(t);
+    	   
+       }
 
-        else if(request.getParameter("user") != null)   //  "/api/timetable/?user=1"
+       /* else if(request.getParameter("user") != null)   //  "/api/timetable/?user=1"
 		{ 
         	 /**
        		 * return all unique timetables from timetable where user_fk = user
-       		 */
+       		 
         	
 			HttpSession session = request.getSession();
 			if(session.getAttribute("id") != null && session.getAttribute("usertype")== "admin")   // user must be an admin 
@@ -106,17 +124,14 @@ public class ApiTimetable extends HttpServlet {
 				
 				listOfTimetables = timetableDao.selectUniqueTimetable(t);
 				
-				/*for(Timetable timetable : listOftimetables)
-	        	{
-	        		timetablesID.add(timetable.getTimetableId());
-	        	}*/
+				
 			}
 		}
-        else if(request.getParameter("prof") != null)    //      "/api/timetable/?prof=1"
+        /*else if(request.getParameter("prof") != null)    //      "/api/timetable/?prof=1" returns timetables where lesson.proffk = iduser
         {
         	  /**
        		 * return all unique timetables from lesson where prof_fk = prof
-       		 */
+       		 
         	HttpSession session = request.getSession();
 			if(session.getAttribute("id") != null && session.getAttribute("usertype")== "prof")   // user must be a teacher
 			{
@@ -137,6 +152,49 @@ public class ApiTimetable extends HttpServlet {
 	        		listOfTimetables.add(timetable);
 	        	}
 			}
+        }*/
+        else 
+        {
+        	HttpSession session = request.getSession();
+        	if(session.getAttribute("id")!= null)
+        	{
+        		if(session.getAttribute("usertype")== "prof")
+        		{
+        			/**
+               		 * return all unique timetables from lesson where prof_fk = prof in session
+               		 */
+        			Lesson L = new Lesson();
+    	        	Long prof = (Long) session.getAttribute("id");
+    	        	L.setLessonTeacherFk(prof);
+    	        	List<Lesson> listOflessons;
+    	        	listOflessons = lessonDao.selectUniqueLessonTimetable(L);
+    	        	
+    	        	for(Lesson lesson : listOflessons)
+    	        	{
+    	        		Timetable tt = new Timetable();
+    	        		tt.setTimetableId(lesson.getLessonTimetableFk());
+    	        		
+    	        		List<Timetable> l = timetableDao.selectTimetable(tt);
+    	        		
+    	        		Timetable timetable = l.get(0);
+    	        		listOfTimetables.add(timetable);
+    	        	}
+        		}
+        		else if (session.getAttribute("usertype")== "admin")
+        		{
+        			/**
+               		 * return all unique timetables from timetable where user_fk = user in session
+               		 */
+                	
+        			Timetable t = new Timetable();
+    				Long user =  (Long) session.getAttribute("id");
+    				t.setTimetableUserFk(user);
+    				
+    				listOfTimetables = timetableDao.selectUniqueTimetable(t);
+    				
+        		}
+        			
+        	}
         }
         String listOfTimetablesJsonString = this.gson.toJson(listOfTimetables);
     	PrintWriter out = response.getWriter();

@@ -43,9 +43,14 @@
              <tr>
                 <th>faculty_fk : </th>
                 <td>
-                    <input type="text" name="faculty_fk" size="45"
+                    <!-- <input type="text" name="faculty_fk" size="45"
                             value="<c:out value='${cl.getClassFacultyFk()}' />"
-                    />
+                    /> -->
+                    <select id="faculty_fk" name="faculty_fk">
+                        <c:forEach var="faculty" items="${listFaculties }">
+                            <option value="${faculty.getFacultyId()}">${faculty.getFacultyYear()} ${faculty.getFacultyAbrev()}</option>
+                        </c:forEach>
+                    </select>
                 </td>
             </tr>
             
@@ -68,7 +73,7 @@
             <tr>
                 <th>color : </th>
                 <td>
-                    <input type="text" name="color" size="5"
+                    <input type="color" name="color" size="5"
                             value="<c:out value='${cl.getClassColor()}' />"
                     />
                 </td>
