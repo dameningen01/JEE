@@ -56,7 +56,7 @@ public class ClassDao implements IntClassDao{
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "UPDATE CLASS SET FACULTY_ID = '"+cl.getClassFacultyFk()+"' , GROUP = '"+cl.getClassGroup()+"' , FREE_TIME = '"+cl.getClassFreeTime()+"' , COLOR = '"+cl.getClassColor()+"' WHERE ID = '"+cl.getClassId()+"' ;";
+			String sql = "UPDATE CLASS SET FACULTY_ID = '"+cl.getClassFacultyFk()+"' , GROUP_NUM = '"+cl.getClassGroup()+"' , FREE_TIME = '"+cl.getClassFreeTime()+"' , COLOR = '"+cl.getClassColor()+"' WHERE ID = '"+cl.getClassId()+"' ;";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -77,21 +77,21 @@ public class ClassDao implements IntClassDao{
 		try {
 			c = cm.openConnection();
 			String sql = "SELECT * FROM CLASS WHERE 1=1 ";
-			/*if(cl.getClassId() != null) {
+			if(cl.getClassId() != null) {
 				sql+= " AND ID = '" + cl.getClassId()+ "'";
 			}
 			if(cl.getClassFacultyFk() != null) {
 				sql+= " AND FACULTY_ID = '" + cl.getClassFacultyFk()+ "'";
 			}
-			if(cl.getClassGroup() != 0) {
+			/*if(cl.getClassGroup() != 0) {
 				sql+= " AND GROUP_NUM = '" + cl.getClassGroup()+ "'";
-			}
+			}*/
 			if(cl.getClassFreeTime() != null) {
 				sql+= " AND FREE_TIME = '" + cl.getClassFreeTime()+ "'";
 			}
 			if(cl.getClassColor() != null) {
 				sql+= " AND COLOR = '" + cl.getClassColor()+ "'";
-			}*/
+			}
 			sql+= ";";
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
@@ -118,20 +118,19 @@ public class ClassDao implements IntClassDao{
 	}
 
 	@Override
-	public List<Class> selectClassFacultyName(Class cl) {
+	public String selectClassFacultyName(Class cl) {
 		ConnectionManager cm = ConnectionManager.getInstance();
 		Connection c = null;
-		List<Class> list = new ArrayList<Class>();
+		String facultyname = null;
 		try {
 			c = cm.openConnection();
-			String sql = "SELECT name FROM CLASS c, FACULTY f WHERE f.id = c.faculty_id ; ";
+			String sql = "SELECT name FROM CLASS c, FACULTY f WHERE f.id = c.faculty_id AND c.id = "+"'"+cl.getClassId()+"'; ";
 			Statement st = c.createStatement();
 			ResultSet resultats = st.executeQuery(sql);
-			while(resultats.next()) {
-				Class cll = new Class();
-				cll.setClassFacultyName(resultats.getString("name"));
-				list.add(cll);
-			}
+			resultats.next();
+			facultyname = resultats.getString("name");
+			
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -140,7 +139,9 @@ public class ClassDao implements IntClassDao{
 		}finally {
 			cm.closeConnection(c);
 		}
-		return list;
+		
+		return facultyname;
+		
 	}
 
 }

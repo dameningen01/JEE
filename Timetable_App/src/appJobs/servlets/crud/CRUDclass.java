@@ -52,22 +52,23 @@ private IntClassDao classDao ;
 
     		throws ServletException, IOException {
     	
-    	String action = request.getServletPath();
+    	String action = request.getRequestURI();
+    	//System.out.println(action);
     	try {
 			switch (action) {
-			case "/class/new":
+			case "/Timetable_App/class/new":
 			showNewForm(request, response);
 			break;
-			case "/class/insert":
+			case "/Timetable_App/class/insert":
 			insertclass(request, response);
 			break;
-			case "/class/delete":
+			case "/Timetable_App/class/delete":
 			deleteclass(request, response);
 			break;
-			case "/class/edit":
+			case "/Timetable_App/class/edit":
 			showEditForm(request, response);
 			break;
-			case "/class/update":
+			case "/Timetable_App/class/update":
 			updateclass(request, response);
 			break;
 			default:
@@ -112,7 +113,7 @@ private IntClassDao classDao ;
     	cl.setClassId(id);
     	List<Class> listClass = classDao.selectClass(cl);
     	Class existingclass= listClass.get(0);
-    	request.setAttribute("class", existingclass);
+    	request.setAttribute("cl", existingclass);
     	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/classForm.jsp").forward(request, response);
     }
     

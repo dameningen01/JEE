@@ -50,22 +50,22 @@ private IntSubjectDao subjectDao ;
 
     		throws ServletException, IOException {
     	
-    	String action = request.getServletPath();
+    	String action = request.getRequestURI();
     	try {
 			switch (action) {
-			case "/subject/new":
+			case "/Timetable_App/subject/new":
 			showNewForm(request, response);
 			break;
-			case "/subject/insert":
+			case "/Timetable_App/subject/insert":
 			insertsubject(request, response);
 			break;
-			case "/subject/delete":
+			case "/Timetable_App/subject/delete":
 			deletesubject(request, response);
 			break;
-			case "/subject/edit":
+			case "/Timetable_App/subject/edit":
 			showEditForm(request, response);
 			break;
-			case "/subject/update":
+			case "/Timetable_App/subject/update":
 			updatesubject(request, response);
 			break;
 			default:
@@ -84,8 +84,9 @@ private IntSubjectDao subjectDao ;
     		throws SQLException, IOException, ServletException
     {
     	Subject subject = new Subject();
-    	List<Subject> listsubject = subjectDao.selectSubject(subject);
-    	request.setAttribute("listsubject", listsubject);
+    	List<Subject> listSubject = subjectDao.selectSubject(subject);
+    	request.setAttribute("listSubject", listSubject);
+    	//System.out.println(listSubject);
     	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/subjectList.jsp").forward(request, response);
     }
     

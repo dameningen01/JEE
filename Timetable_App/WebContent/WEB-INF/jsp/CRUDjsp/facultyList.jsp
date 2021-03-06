@@ -1,24 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <html>
 <head>
     <title>faculty list</title>
 </head>
 <body>
-	 <center>
+	
     <h1>faculties Management</h1>
     <h2>
-            <a href="faculty/new">Add New faculty</a>
+            <a href="/Timetable_App/faculty/new">Add New faculty</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="faculty/list">List All faculties</a>
+            <a href="/Timetable_App/faculty/">List All faculties</a>
              
         </h2>
-    </center>
+   
     <div align="center">
-        <table border="1" cellpadding="5">
-            <caption><h2>List All faculties</h2></caption>
+        <table border="1" >
+            <caption>List All faculties</caption>
             <tr>
-            <!-- private Long id;
+            <!--  private Long id;
 			private String name;
 			private String abrev;
 			private int year;-->
@@ -29,17 +31,18 @@
                 
                 <th>Actions</th>
             </tr>
-            <c:forEach var="faculty" items="${listfaculty}">
+           
+            <c:forEach var="faculty" items="${listFaculty}">
                 <tr>
-                    <td><c:out value="${faculty.id}" /></td>
-                    <td><c:out value="${faculty.name}" /></td>
-                    <td><c:out value="${faculty.abrev}" /></td>
-                    <td><c:out value="${faculty.year}" /></td>
+                    <td><c:out value=" ${faculty.getFacultyId()} " /></td>
+                    <td><c:out value="${faculty.getFacultyName()}" /></td>
+                    <td><c:out value="${faculty.getFacultyAbrev()}" /></td>
+                    <td><c:out value="${faculty.getFacultyYear()}" /></td>
                     
                     <td>
-                        <a href="faculty/edit?id=<c:out value='${faculty.id}' />">Edit</a>
+                        <a href="/Timetable_App/faculty/edit?id=<c:out value='${faculty.getFacultyId()}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="faculty/delete?id=<c:out value='${faculty.id}' />">Delete</a>                     
+                        <a href="/Timetable_App/faculty/delete?id=<c:out value='${faculty.getFacultyId()}' />">Delete</a>                     
                     </td>
                 </tr>
             </c:forEach>

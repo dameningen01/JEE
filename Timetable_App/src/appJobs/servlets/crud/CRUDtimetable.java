@@ -52,22 +52,22 @@ private IntTimetableDao timetableDao ;
 
     		throws ServletException, IOException {
     	
-    	String action = request.getServletPath();
+    	String action = request.getRequestURI();
     	try {
 			switch (action) {
-			case "/timetable/new":
+			case "/Timetable_App/timetable/new":
 			showNewForm(request, response);
 			break;
-			case "/timetable/insert":
+			case "/Timetable_App/timetable/insert":
 			inserttimetable(request, response);
 			break;
-			case "/timetable/delete":
+			case "/Timetable_App/timetable/delete":
 			deletetimetable(request, response);
 			break;
-			case "/timetable/edit":
+			case "/Timetable_App/timetable/edit":
 			showEditForm(request, response);
 			break;
-			case "/timetable/update":
+			case "/Timetable_App/timetable/update":
 			updatetimetable(request, response);
 			break;
 			default:
@@ -85,9 +85,16 @@ private IntTimetableDao timetableDao ;
     private void listtimetable(HttpServletRequest request, HttpServletResponse response)
     		throws SQLException, IOException, ServletException
     {
+    	//HttpSession session = request.getSession();
+    	 //session.setAttribute("username", "ikrame");
+         //session.setAttribute("usertype", "admin");
+         //session.setAttribute("id", 1L);
+         
+
     	Timetable timetable = new Timetable();
-    	List<Timetable> listtimetable = timetableDao.selectTimetable(timetable);
-    	request.setAttribute("listtimetable", listtimetable);
+    	List<Timetable> listTimetable = timetableDao.selectTimetable(timetable);
+    	request.setAttribute("listTimetable", listTimetable);
+    	//System.out.println(listTimetable);
     	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/timetableList.jsp").forward(request, response);
     }
     

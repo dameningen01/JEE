@@ -18,7 +18,7 @@ public class TeacherDao implements IntTeacherDao{
 		Connection c = null;
 		try {
 			c = cm.openConnection();
-			String sql = "INSERT INTO TEACHER (name,free_time,couleur,user_id)VALUES ('"+p.getTeacherName()+"','"+p.getTeacherFreeTime()+"','"+p.getTeacherColor()+"','"+p.getTeacherUserFk()+"')";
+			String sql = "INSERT INTO TEACHER (name,free_time,color,user_id)VALUES ('"+p.getTeacherName()+"','"+p.getTeacherFreeTime()+"','"+p.getTeacherColor()+"','"+p.getTeacherUserFk()+"')";
 			Statement st = c.createStatement();
 			st.execute(sql);
 		} catch (SQLException e) {
@@ -90,7 +90,7 @@ public class TeacherDao implements IntTeacherDao{
 				sql+= " AND USER_ID = '" + p.getTeacherUserFk()+ "'";
 			}
 			if(p.getTeacherColor() != null) {
-				sql+= " AND COULEUR = '" + p.getTeacherColor()+ "'";
+				sql+= " AND COLOR = '" + p.getTeacherColor()+ "'";
 			}
 			
 			Statement st = c.createStatement();
@@ -101,7 +101,7 @@ public class TeacherDao implements IntTeacherDao{
 				pl.setTeacherName(resultats.getString("name"));
 				pl.setTeacherFreeTime(resultats.getString("free_time"));
 				pl.setTeacherUserFk(resultats.getLong("user_id"));
-				pl.setTeacherColor(resultats.getString("couleur"));
+				pl.setTeacherColor(resultats.getString("color"));
 				
 				list.add(pl);
 			}

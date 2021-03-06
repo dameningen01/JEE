@@ -56,22 +56,22 @@ public class CRUDteacher extends HttpServlet {
 
     		throws ServletException, IOException {
     	
-    	String action = request.getServletPath();
+    	String action = request.getRequestURI();
     	try {
 			switch (action) {
-			case "/teacher/new":
+			case "/Timetable_App/teacher/new":
 			showNewForm(request, response);
 			break;
-			case "/teacher/insert":
+			case "/Timetable_App/teacher/insert":
 			insertteacher(request, response);
 			break;
-			case "/teacher/delete":
+			case "/Timetable_App/teacher/delete":
 			deleteteacher(request, response);
 			break;
-			case "/teacher/edit":
+			case "/Timetable_App/teacher/edit":
 			showEditForm(request, response);
 			break;
-			case "/teacher/update":
+			case "/Timetable_App/teacher/update":
 			updateteacher(request, response);
 			break;
 			default:

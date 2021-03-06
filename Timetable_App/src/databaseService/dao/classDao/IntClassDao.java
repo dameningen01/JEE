@@ -8,5 +8,5 @@ public interface IntClassDao {
 	public boolean deleteClass(Class cl);
 	public boolean updateClass(Class cl);
 	public List<Class> selectClass(Class cl);
-	public List<Class> selectClassFacultyName(Class cl);
+	public String selectClassFacultyName(Class cl);
 }

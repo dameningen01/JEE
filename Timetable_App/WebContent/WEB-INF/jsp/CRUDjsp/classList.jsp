@@ -10,9 +10,9 @@
 	
     <h1>classes Management</h1>
     <h2>
-            <a href="class/new">Add New class</a>
+            <a href="/Timetable_App/class/new">Add New class</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="class/">List All classes</a>
+            <a href="/Timetable_App/class">List All classes</a>
              
         </h2>
    
@@ -36,14 +36,14 @@
             <c:forEach var="cl" items="${listClass}">
                 <tr>
                     <td><c:out value=" ${cl.getClassId()} " /></td>
-                    <td><c:out value="${cl.getClassFacultyFk()}" /></td>
+                    <td><c:out value="${cl.getClassFacultyName()}" /></td>
                     <td><c:out value="${cl.getClassGroup()}" /></td>
                     <td><c:out value="${cl.getClassFreeTime()}" /></td>
                     <td><c:out value="${cl.getClassColor()}" /></td>
                     <td>
-                        <a href="class/edit?id=<c:out value='${cl.getClassId()}' />">Edit</a>
+                        <a href="/Timetable_App/class/edit?id=<c:out value='${cl.getClassId()}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="class/delete?id=<c:out value='${cl.getClassId()}' />">Delete</a>                     
+                        <a href="/Timetable_App/class/delete?id=<c:out value='${cl.getClassId()}' />">Delete</a>                     
                     </td>
                 </tr>
             </c:forEach>

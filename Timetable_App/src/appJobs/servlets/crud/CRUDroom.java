@@ -51,22 +51,22 @@ public class CRUDroom extends HttpServlet {
 
     		throws ServletException, IOException {
     	
-    	String action = request.getServletPath();
+    	String action = request.getRequestURI();
     	try {
 			switch (action) {
-			case "/room/new":
+			case "/Timetable_App/room/new":
 			showNewForm(request, response);
 			break;
-			case "/room/insert":
+			case "/Timetable_App/room/insert":
 			insertroom(request, response);
 			break;
-			case "/room/delete":
+			case "/Timetable_App/room/delete":
 			deleteroom(request, response);
 			break;
-			case "/room/edit":
+			case "/Timetable_App/room/edit":
 			showEditForm(request, response);
 			break;
-			case "/room/update":
+			case "/Timetable_App/room/update":
 			updateroom(request, response);
 			break;
 			default:

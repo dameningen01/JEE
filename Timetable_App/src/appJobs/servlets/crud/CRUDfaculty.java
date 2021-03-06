@@ -54,22 +54,22 @@ public class CRUDfaculty extends HttpServlet {
 
     		throws ServletException, IOException {
     	
-    	String action = request.getServletPath();
+    	String action = request.getRequestURI();
     	try {
 			switch (action) {
-			case "/faculty/new":
+			case "/Timetable_App/faculty/new":
 			showNewForm(request, response);
 			break;
-			case "/faculty/insert":
+			case "/Timetable_App/faculty/insert":
 			insertfaculty(request, response);
 			break;
-			case "/faculty/delete":
+			case "/Timetable_App/faculty/delete":
 			deletefaculty(request, response);
 			break;
-			case "/faculty/edit":
+			case "/Timetable_App/faculty/edit":
 			showEditForm(request, response);
 			break;
-			case "/faculty/update":
+			case "/Timetable_App/faculty/update":
 			updatefaculty(request, response);
 			break;
 			default:

@@ -51,22 +51,22 @@ private IntLessonDao lessonDao ;
 
     		throws ServletException, IOException {
     	
-    	String action = request.getServletPath();
+    	String action = request.getRequestURI();
     	try {
 			switch (action) {
-			case "/lesson/new":
+			case "/Timetable_App/lesson/new":
 			showNewForm(request, response);
 			break;
-			case "/lesson/insert":
+			case "/Timetable_App/lesson/insert":
 			insertlesson(request, response);
 			break;
-			case "/lesson/delete":
+			case "/Timetable_App/lesson/delete":
 			deletelesson(request, response);
 			break;
-			case "/lesson/edit":
+			case "/Timetable_App/lesson/edit":
 			showEditForm(request, response);
 			break;
-			case "/lesson/update":
+			case "/Timetable_App/lesson/update":
 			updatelesson(request, response);
 			break;
 			default:

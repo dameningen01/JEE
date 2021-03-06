@@ -1,5 +1,8 @@
 package databaseService.beans;
 
+import databaseService.dao.classDao.ClassDao;
+import databaseService.dao.classDao.IntClassDao;
+
 public class Class implements java.io.Serializable{
 	/**
 	 * 
@@ -12,7 +15,7 @@ public class Class implements java.io.Serializable{
 	private String color;
 	
 	// for select faculty name from class
-	private String class_faculty_name;
+	//private String class_faculty_name;
 	
 	//Constructeur pour le test de la requette DELETE et SELECT (on n'a besoin que du ID)
 		public Class(Long id) {
@@ -74,11 +77,12 @@ public class Class implements java.io.Serializable{
 	// for select faculty name from class
 
 	public String getClassFacultyName() {
-		return class_faculty_name;
+		IntClassDao classDao = new ClassDao();
+		return classDao.selectClassFacultyName(this);
 	}
 
-	public void setClassFacultyName(String class_faculty_name) {
+	/*public void setClassFacultyName(String class_faculty_name) {
 		this.class_faculty_name = class_faculty_name;
-	}
+	}*/
 
 }
