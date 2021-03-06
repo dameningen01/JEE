@@ -10,9 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import databaseService.beans.Class;
 import databaseService.beans.Lesson;
+import databaseService.beans.Room;
+import databaseService.beans.Subject;
+import databaseService.beans.Teacher;
+import databaseService.beans.Timetable;
+import databaseService.dao.classDao.ClassDao;
+import databaseService.dao.classDao.IntClassDao;
+import databaseService.dao.facultyDao.FacultyDao;
+import databaseService.dao.facultyDao.IntFacultyDao;
 import databaseService.dao.lessonDao.IntLessonDao;
 import databaseService.dao.lessonDao.LessonDao;
+import databaseService.dao.professeurDao.IntTeacherDao;
+import databaseService.dao.professeurDao.TeacherDao;
+import databaseService.dao.roomDao.IntRoomDao;
+import databaseService.dao.roomDao.RoomDao;
+import databaseService.dao.subjectDao.IntSubjectDao;
+import databaseService.dao.subjectDao.SubjectDao;
+import databaseService.dao.timetableDao.IntTimetableDao;
+import databaseService.dao.timetableDao.TimetableDao;
 
 /**
  * Servlet implementation class lessonCRUD
@@ -85,7 +102,8 @@ private IntLessonDao lessonDao ;
     		throws SQLException, IOException, ServletException
     {
     	Lesson lesson = new Lesson();
-    	List<Lesson> listlesson = lessonDao.selectLesson(lesson);
+    	List<Lesson> listlesson = lessonDao.selectDetailsLesson(lesson);
+    	//System.out.println(listlesson);
     	request.setAttribute("listlesson", listlesson);
     	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/lessonList.jsp").forward(request, response);
     }
@@ -96,6 +114,32 @@ private IntLessonDao lessonDao ;
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException 
     {
+    	Teacher teacher = new Teacher();
+    	IntTeacherDao teacherDao = new TeacherDao();
+    	List<Teacher> listTeacher = teacherDao.selectTeacher(teacher);
+    	request.setAttribute("listTeacher", listTeacher);
+    	
+    	Class cl = new Class();
+    	IntClassDao classDao = new ClassDao();
+    	List<Class> listClass = classDao.selectClass(cl);
+    	request.setAttribute("listClass", listClass);
+    	
+    	Room rooom = new Room();
+    	IntRoomDao roomDao = new RoomDao();
+    	List<Room> listRoom = roomDao.selectRoom(rooom);
+    	request.setAttribute("listRoom", listRoom);
+    	
+    	Subject subject = new Subject();
+    	IntSubjectDao subjectDao = new SubjectDao();
+    	List<Subject> listSubject = subjectDao.selectSubject(subject);
+    	request.setAttribute("listSubject", listSubject);
+    	
+    	Timetable timetable = new Timetable();
+    	IntTimetableDao timetableDao = new TimetableDao();
+    	List<Timetable> listTimetable = timetableDao.selectTimetable(timetable);
+    	request.setAttribute("listTimetable", listTimetable);
+    	
+    	
     	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/CRUDjsp/lessonForm.jsp").forward(request, response);
     }
     

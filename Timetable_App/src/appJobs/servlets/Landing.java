@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Landing
  */
-@WebServlet("/Landing")
+
 public class Landing extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +27,7 @@ public class Landing extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/home.html").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/landing.jsp").forward(request, response);
 	}
 
 	/**

@@ -36,7 +36,7 @@
 	  </servlet>
 	  <servlet-mapping>
 	    <servlet-name>Landing</servlet-name>
-	    <url-pattern>/landing</url-pattern>
+	    <url-pattern>/landing/</url-pattern>
 	  </servlet-mapping>
 	  
 	  

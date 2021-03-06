@@ -41,7 +41,7 @@
                 </c:if>           
             <tr>
              <tr>
-                <th>faculty_fk : </th>
+                <th>faculty : </th>
                 <td>
                     <!-- <input type="text" name="faculty_fk" size="45"
                             value="<c:out value='${cl.getClassFacultyFk()}' />"

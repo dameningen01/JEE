@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
+
+
     <!DOCTYPE html>
     <html lang="en">
     
@@ -63,7 +66,9 @@
             }
     </style>
     <div class="section"></div>
-   <!-- <img src='<c:url value="../img/logo.png"></c:url>' />   -->   
+   <!-- <img src='<c:url value="../img/logo.png"></c:url>' />   --> 
+   <img src="../img/logo.png" alt="">  
+   
     <main>
         <center>
             <div style="display: flex;flex-direction: row-reverse;">

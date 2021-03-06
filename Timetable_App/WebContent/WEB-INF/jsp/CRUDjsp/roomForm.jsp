@@ -60,14 +60,16 @@
                 </td>
             </tr>
            
-            <tr>
+           
+                <tr>
                 <th>color : </th>
                 <td>
-                    <input type="text" name="color" size="45"
+                    <input type="color" name="color" size="5"
                             value="<c:out value='${room.getRoomColor()}' />"
                     />
                 </td>
             </tr>
+           
             
                 <td colspan="2" align="center">
                     <input type="submit" value="Save" />

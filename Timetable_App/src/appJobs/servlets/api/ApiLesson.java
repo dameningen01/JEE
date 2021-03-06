@@ -75,7 +75,7 @@ public class ApiLesson extends HttpServlet {
 	           	
 	           	L.setLessonClassFk(cl);
 	           	//System.out.println(lessonDao.selectLesson(L));
-	           	listOflessons = lessonDao.selectLesson(L);
+	           	listOflessons = lessonDao.selectDetailsLesson(L);
 	           	
 	           	/*for(Lesson lesson : listOflessons)
 	           	{
@@ -101,7 +101,7 @@ public class ApiLesson extends HttpServlet {
     	   				if(t.getTimetableUserFk() == session.getAttribute("id") )   //cheks if timetable with id = tt_id had user_id = session user
     	   				{
     	   			
-    	   		           	listOflessons = lessonDao.selectLesson(L);
+    	   		           	listOflessons = lessonDao.selectDetailsLesson(L);
     		   		           	
     	   		         /*for(Lesson lesson : listOflessons)
     			 	           	{

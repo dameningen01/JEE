@@ -76,10 +76,10 @@
                     />
                 </td>
             </tr>
-            <tr>
+             <tr>
                 <th>color : </th>
                 <td>
-                    <input type="text" name="color" size="45"
+                    <input type="color" name="color" size="5"
                             value="<c:out value='${subject.getSubjectColor()}' />"
                     />
                 </td>
