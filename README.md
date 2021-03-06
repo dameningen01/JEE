@@ -10,7 +10,7 @@
 ## Création
 
 ### Adjectifs sur la forme et l’apparence :
-Une interface d’utilisation simple,  facile à manipuler pour la création des emplois de temps personnalisés, se compose des cartes contenant le titre du cours, la salle, le nom du professeur et la class concernée par ce cours. L’utilisateur qui va créer un emploi du temps spécifique doit glisser et déposer ces cartes dans une table dont les colonnes représentent les périodes (p1 indique la période de 8h jusqu’à 10h), et la 1ere contient les jours de la semaine.
+Une interface d’utilisation simple,  facile à manipuler pour la création des emplois de temps personnalisés, se compose des cartes contenant le titre du cours, la salle, le nom du professeur et la class concernée par ce cours. L’utilisateur qui va créer un emploi du temps spécifique doit glisser et déposer ces cartes dans une table dont les colonnes représentent les périodes (par exemple p1 indique la période de 8h jusqu’à 10h), et la 1ere colonne contient les jours de la semaine.
 
 ## Fonctionnalités et Technique 
 
