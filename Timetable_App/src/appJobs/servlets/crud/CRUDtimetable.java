@@ -52,7 +52,15 @@ private IntTimetableDao timetableDao ;
 
     		throws ServletException, IOException {
     	
-    	String action = request.getRequestURI();
+    	 HttpSession session = request.getSession();
+    	 
+    	 if(session.getAttribute("id")== null) 
+    	 {
+    		 response.sendRedirect("/Timetable_App/");
+    	 }
+    	
+    	
+	 String action = request.getRequestURI();
     	try {
 			switch (action) {
 			case "/Timetable_App/timetable/new":
@@ -76,7 +84,8 @@ private IntTimetableDao timetableDao ;
 			}
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
-			}
+			} 
+    	
 	}
     
     /**
@@ -138,13 +147,15 @@ private IntTimetableDao timetableDao ;
 		private String description;
 		private String free_time;
 		private String summary;*/
-	    	
+    	System.out.println("aweeeleeeeeeeey");
     	 HttpSession session = request.getSession();
          Long user_fk = (Long) session.getAttribute("id");
     	
-    	int  nb_days = Integer .parseInt (request.getParameter("nb_days"));
-    	int  nb_periods = Integer .parseInt (request.getParameter("nb_periods"));
-    	int  hours_per_period = Integer .parseInt (request.getParameter("hours_per_period"));
+         System.out.println(user_fk);
+         System.out.println("aweeeleeeeeeeey");
+    	//int  nb_days = Integer .parseInt (request.getParameter("nb_days"));
+    	//int  nb_periods = Integer .parseInt (request.getParameter("nb_periods"));
+    	//int  hours_per_period = Integer .parseInt (request.getParameter("hours_per_period"));
 		String description = request.getParameter("description");
 		String free_time = request.getParameter("free_time");
 		//String summary = request.getParameter("summary");
@@ -153,9 +164,9 @@ private IntTimetableDao timetableDao ;
 		Timetable timetable = new Timetable(); 
 		
 		timetable.setTimetableUserFk(user_fk);
-		timetable.setTimetableNbDays(nb_days);
-		timetable.setTimetableNbPeriods(nb_periods);
-		timetable.setTimetableHoursPerPeriod(hours_per_period);
+		//timetable.setTimetableNbDays(nb_days);
+		//timetable.setTimetableNbPeriods(nb_periods);
+		//timetable.setTimetableHoursPerPeriod(hours_per_period);
 		timetable.setTimetableDescription(description);
 		timetable.setTimetableFreeTime(free_time);
 		//timetable.setTimetableSummary(summary);             //??

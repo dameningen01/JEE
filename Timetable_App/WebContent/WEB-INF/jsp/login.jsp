@@ -9,19 +9,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo.png" type="image/x-icon" >
+        <link rel="shortcut icon" href="http://localhost:8000/static/img/logo.png" type="image/x-icon" >
         
-       
-        
-         <!--<link href="<c:url value="/WEB-INF/css/material icons.css" />"  rel="stylesheet" type = "text/css">
-        
-         <link rel="stylesheet" href="<c:url value="/WEB-INF/css/materialize.min.css" />"  type = "text/css">
-        
-        <link rel="stylesheet" href="<c:url value="/WEB-INF/css/style.css" />"  type = "text/css" >-->
-        
-         <link rel="stylesheet" type="text/css" href="css/material icons.css"> 
-          <link rel="stylesheet" type="text/css" href="css/materialize.min.css"> 
-           <link rel="stylesheet" type="text/css" href="css/style.css"> 
+         <link rel="stylesheet" type="text/css" href="http://localhost:8000/static/css/material icons.css"> 
+          <link rel="stylesheet" type="text/css" href="http://localhost:80000/static/css/materialize.min.css"> 
+           <link rel="stylesheet" type="text/css" href="http://localhost:8000/static/css/style.css"> 
         
          <!--<style><%@include file="/WEB-INF/css/material icons.css"%></style>
         <style><%@include file="/WEB-INF/css/materialize.min.css"%></style>
@@ -66,8 +58,7 @@
             }
     </style>
     <div class="section"></div>
-   <!-- <img src='<c:url value="../img/logo.png"></c:url>' />   --> 
-   <img src="../img/logo.png" alt="">  
+    
    
     <main>
         <center>
@@ -76,7 +67,7 @@
                     <div class="btn waves-effect red lighten-2">Go back</div>
                 </a>
             </div>
-            <div class="section"><img class="responsive-img" src="/img/logo.png" style="height: 100px;" /></div>
+            <div class="section"><img class="responsive-img" src="http://localhost:8000/static/img/logo.png" style="height: 100px;" /></div>
             <div class="container">
                 <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
     
@@ -126,17 +117,11 @@
     </script>
     
     
-        <script src="/js/materialize.min.js"></script>
+        <script src="http://localhost:8000/static/js/materialize.min.js"></script>
         
         {% block extra_scripts %} {% endblock extra_scripts %} {% include 'user/messages.html' %}
     
     </body>
     
     </html>
-    
-    
-    
-    
-    
-    
     
