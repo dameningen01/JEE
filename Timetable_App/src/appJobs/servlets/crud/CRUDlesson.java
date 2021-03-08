@@ -78,6 +78,8 @@ private IntLessonDao lessonDao ;
      	 {
      		 response.sendRedirect("/Timetable_App/");
      	 }
+     	 
+     	else {
     	String action = request.getRequestURI();
     	try {
 			switch (action) {
@@ -103,6 +105,7 @@ private IntLessonDao lessonDao ;
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 			}
+     	}
 	}
     
     /**

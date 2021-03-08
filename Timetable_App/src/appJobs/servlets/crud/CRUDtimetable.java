@@ -61,7 +61,7 @@ private IntTimetableDao timetableDao ;
     	 else if(!session.getAttribute("usertype").equals("admin")) 
     	 {
     		 response.sendRedirect("/Timetable_App/");
-    	 }
+    	 }else {
     	
     	
 	 String action = request.getRequestURI();
@@ -89,6 +89,7 @@ private IntTimetableDao timetableDao ;
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 			} 
+    	 }
     	
 	}
     

@@ -65,6 +65,9 @@ public class CRUDteacher extends HttpServlet {
       	 {
       		 response.sendRedirect("/Timetable_App/");
       	 }
+      	 
+      	else {
+      		
     	String action = request.getRequestURI();
     	try {
 			switch (action) {
@@ -90,6 +93,7 @@ public class CRUDteacher extends HttpServlet {
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 			}
+      	}
 	}
     
     /**
