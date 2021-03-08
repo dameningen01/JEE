@@ -4,7 +4,17 @@
     
 <html>
 <head>
-    <title>Class list</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:8000/static/css/materialize.min.css">
+    <link rel="stylesheet" href="http://localhost:8000/static/css/forms.css">
+    <link rel="stylesheet" href="http://localhost:8000/static/css/style.css">
+    <link href="http://localhost:8000/static/css/material icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:8000/static/css/tail.select-light-feather.min.css">
+    <link rel="stylesheet" href="http://localhost:8000/static/css/font_awsome.min.css">
+    <script src="http://localhost:8000/static/js/tail.select-full.min.js"></script>
+    <title>Ensias Timetables</title>
 </head>
 <body>
 

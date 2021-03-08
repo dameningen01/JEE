@@ -25,7 +25,7 @@
               </div>
               <div class="animate fadeRight">
               <a href="#user"><img class="circle animate fadeRight" src="http://localhost:8000/static/img/yuna.jpg"></a>
-              <a href="#name"><span class="white-text name">${session.username}</span></a>
+              <a href="#name"><span class="white-text name">${sessionScope.username}</span></a>
              
               </div>
             </div>
@@ -66,7 +66,7 @@
                         <a class="collapsible-header waves-effect">Classes<i class="material-icons">arrow_drop_down</i></a>
                         <div class="collapsible-body">
                           <ul class="animate fadeUp">
-                            <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/class/">Display</a></li>
+                            <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/class">Display</a></li>
                             <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/class/new">Create</a></li>
                           </ul>
                         </div>
@@ -79,7 +79,7 @@
                     <a class="collapsible-header waves-effect">Rooms<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                       <ul class="animate fadeUp">
-                        <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/room/">Display</a></li>
+                        <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/room">Display</a></li>
                         <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/room/new">Create</a></li>
                       </ul>
                     </div>
