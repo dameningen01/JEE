@@ -21,10 +21,10 @@
         <ul id="slide-out" class="sidenav sidenav" style="max-width:200px !important;">
           <li><div class="user-view">
               <div class="background">
-                <img src="/img/office.jpg" style="max-height: 200px;">
+                <img src="http://localhost:8000/static/img/office.jpg" style="max-height: 200px;">
               </div>
               <div class="animate fadeRight">
-              <a href="#user"><img class="circle animate fadeRight" src="http://localhost:8080/static/img/yuna.jpg"></a>
+              <a href="#user"><img class="circle animate fadeRight" src="http://localhost:8000/static/img/yuna.jpg"></a>
               <a href="#name"><span class="white-text name">${session.username}</span></a>
              
               </div>

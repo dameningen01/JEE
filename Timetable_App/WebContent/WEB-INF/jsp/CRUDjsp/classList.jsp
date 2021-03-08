@@ -7,6 +7,18 @@
     <title>Class list</title>
 </head>
 <body>
+
+		<c:if test="${!empty sessionScope.id }">
+		   <%@ include file="/WEB-INF/jsp/nav/student-nav.jsp" %> 
+		</c:if>
+		
+        <c:if test="${sessionScope.usertype == 'admin'}">
+      
+		   <%@ include file="../nav/admin_nav.jsp" %>
+		</c:if>
+		<c:if test="${sessionScope.usertype == 'prof'}">
+		   <%@ include file="/WEB-INF/jsp/nav/teacher-nav.jsp" %>   
+		</c:if>
 	
     <h1>classes Management</h1>
     <h2>
