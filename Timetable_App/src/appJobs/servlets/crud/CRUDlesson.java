@@ -98,7 +98,7 @@ private IntLessonDao lessonDao ;
 			case "/Timetable_App/lesson/update":
 			updatelesson(request, response);
 			break;
-			case "/Timetable_App/lesson":
+			case "/Timetable_App/lesson/":
 			listlesson(request, response);
 			break;
 			}

@@ -82,7 +82,7 @@ private IntTimetableDao timetableDao ;
 			case "/Timetable_App/timetable/update":
 			updatetimetable(request, response);
 			break;
-			case  "/Timetable_App/timetable" :
+			case  "/Timetable_App/timetable/" :
 			listtimetable(request, response);
 			break;
 			}

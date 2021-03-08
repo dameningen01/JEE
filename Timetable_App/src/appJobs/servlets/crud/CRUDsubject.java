@@ -80,7 +80,7 @@ private IntSubjectDao subjectDao ;
 			case "/Timetable_App/subject/update":
 			updatesubject(request, response);
 			break;
-			case "/Timetable_App/subject" :
+			case "/Timetable_App/subject/" :
 			listsubject(request, response);
 			break;
 			}

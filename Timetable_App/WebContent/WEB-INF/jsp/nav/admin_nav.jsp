@@ -39,7 +39,7 @@
                     <a class="collapsible-header waves-effect">Timetables<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                       <ul class="animate fadeUp">
-                        <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/timetable">Display</a></li>
+                        <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/timetable/">Display</a></li>
                         <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/timetable/new">Create</a></li>
                       </ul>
                     </div>
@@ -52,7 +52,7 @@
                       <a class="collapsible-header waves-effect">Teachers<i class="material-icons">arrow_drop_down</i></a>
                       <div class="collapsible-body">
                         <ul class="animate fadeUp">
-                          <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/teacher">Display</a></li>
+                          <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/teacher/">Display</a></li>
                           <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/teacher/new">Create</a></li>
       
                         </ul>
@@ -66,7 +66,7 @@
                         <a class="collapsible-header waves-effect">Classes<i class="material-icons">arrow_drop_down</i></a>
                         <div class="collapsible-body">
                           <ul class="animate fadeUp">
-                            <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/class">Display</a></li>
+                            <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/class/">Display</a></li>
                             <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/class/new">Create</a></li>
                           </ul>
                         </div>
@@ -79,7 +79,7 @@
                     <a class="collapsible-header waves-effect">Rooms<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                       <ul class="animate fadeUp">
-                        <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/room">Display</a></li>
+                        <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/room/">Display</a></li>
                         <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/room/new">Create</a></li>
                       </ul>
                     </div>
@@ -92,7 +92,7 @@
                       <a class="collapsible-header waves-effect">Subjects<i class="material-icons">arrow_drop_down</i></a>
                       <div class="collapsible-body">
                         <ul class="animate fadeUp">
-                          <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/subject">Display</a></li>
+                          <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/subject/">Display</a></li>
                           <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/subject/new">Create</a></li>
                         </ul>
                       </div>
@@ -105,7 +105,7 @@
                         <a class="collapsible-header waves-effect">Faculties<i class="material-icons">arrow_drop_down</i></a>
                         <div class="collapsible-body">
                           <ul class="animate fadeUp">
-                            <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/faculty">Display</a></li>
+                            <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/faculty/">Display</a></li>
                             <li class="collapsible-element"><a class="waves-effect" href="/Timetable_App/faculty/new">Create</a></li>
                           </ul>
                         </div>

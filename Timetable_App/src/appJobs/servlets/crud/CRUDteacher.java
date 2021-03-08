@@ -86,7 +86,7 @@ public class CRUDteacher extends HttpServlet {
 			case "/Timetable_App/teacher/update":
 			updateteacher(request, response);
 			break;
-			case "/Timetable_App/teacher":
+			case "/Timetable_App/teacher/":
 			listteacher(request, response);
 			break;
 			}

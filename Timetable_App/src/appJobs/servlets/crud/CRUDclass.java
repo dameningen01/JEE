@@ -85,7 +85,7 @@ private IntClassDao classDao ;
 			case "/Timetable_App/class/update":
 			updateclass(request, response);
 			break;
-			case "/Timetable_App/class":
+			case "/Timetable_App/class/":
 			listclass(request, response);
 			break;
 			}

@@ -81,7 +81,7 @@ public class CRUDroom extends HttpServlet {
 			case "/Timetable_App/room/update":
 			updateroom(request, response);
 			break;
-			case "/Timetable_App/room":
+			case "/Timetable_App/room/":
 			listroom(request, response);
 			break;
 			}

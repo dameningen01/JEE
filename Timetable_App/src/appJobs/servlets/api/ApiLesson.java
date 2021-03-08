@@ -89,7 +89,7 @@ public class ApiLesson extends HttpServlet {
     		   HttpSession session = request.getSession();
     		   if(session.getAttribute("id") != null )
     		   {
-    			   if(session.getAttribute("usertype") == "admin")
+    			   if(session.getAttribute("usertype").equals("admin") )
     			   {
     				   Timetable timetable = new Timetable();
     	   				timetable.setTimetableId(tt);
@@ -109,7 +109,7 @@ public class ApiLesson extends HttpServlet {
     			 	           	}*/
     	   				}
     			   }
-    			   else if(session.getAttribute("usertype") == "prof")
+    			   else if(session.getAttribute("usertype").equals("prof"))
     			   {
     				   
     				   Long prof = (Long) session.getAttribute("id");
