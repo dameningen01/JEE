@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import databaseService.beans.Class;
 import databaseService.beans.Faculty;
@@ -54,6 +55,16 @@ private IntClassDao classDao ;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 
     		throws ServletException, IOException {
+    	HttpSession session = request.getSession();
+   	 
+   	 if(session.getAttribute("id")== null) 
+   	 {
+   		 response.sendRedirect("/Timetable_App/");
+   	 }
+   	 else if(!session.getAttribute("usertype").equals("admin")) 
+   	 {
+   		 response.sendRedirect("/Timetable_App/");
+   	 }
     	
     	String action = request.getRequestURI();
     	//System.out.println(action);
@@ -74,7 +85,7 @@ private IntClassDao classDao ;
 			case "/Timetable_App/class/update":
 			updateclass(request, response);
 			break;
-			default:
+			case "/Timetable_App/class":
 			listclass(request, response);
 			break;
 			}

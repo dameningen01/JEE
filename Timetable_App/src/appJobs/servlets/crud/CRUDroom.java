@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import databaseService.beans.Room;
 import databaseService.dao.roomDao.IntRoomDao;
@@ -50,7 +51,16 @@ public class CRUDroom extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 
     		throws ServletException, IOException {
-    	
+    	HttpSession session = request.getSession();
+    	 
+    	 if(session.getAttribute("id")== null) 
+    	 {
+    		 response.sendRedirect("/Timetable_App/");
+    	 }
+    	 else if(!session.getAttribute("usertype").equals("admin")) 
+    	 {
+    		 response.sendRedirect("/Timetable_App/");
+    	 }
     	String action = request.getRequestURI();
     	try {
 			switch (action) {
@@ -69,7 +79,7 @@ public class CRUDroom extends HttpServlet {
 			case "/Timetable_App/room/update":
 			updateroom(request, response);
 			break;
-			default:
+			case "/Timetable_App/room":
 			listroom(request, response);
 			break;
 			}

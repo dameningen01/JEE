@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import databaseService.beans.Faculty;
 import databaseService.dao.facultyDao.FacultyDao;
@@ -53,7 +54,16 @@ public class CRUDfaculty extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 
     		throws ServletException, IOException {
-    	
+    	HttpSession session = request.getSession();
+      	 
+      	 if(session.getAttribute("id")== null) 
+      	 {
+      		 response.sendRedirect("/Timetable_App/");
+      	 }
+      	 else if(!session.getAttribute("usertype").equals("admin")) 
+      	 {
+      		 response.sendRedirect("/Timetable_App/");
+      	 }
     	String action = request.getRequestURI();
     	try {
 			switch (action) {
@@ -72,7 +82,7 @@ public class CRUDfaculty extends HttpServlet {
 			case "/Timetable_App/faculty/update":
 			updatefaculty(request, response);
 			break;
-			default:
+			case "/Timetable_App/faculty":
 			listfaculty(request, response);
 			break;
 			}
