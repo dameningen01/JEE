@@ -67,7 +67,7 @@ public class Login extends HttpServlet {
         	 
          	if(u.getPassword().equals(password))
          	{
-         		System.out.println("hi");
+         		//System.out.println("hi");
          		HttpSession session = request.getSession();
 
                 session.setAttribute("username", username);

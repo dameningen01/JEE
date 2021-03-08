@@ -55,7 +55,16 @@ public class CRUDteacher extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 
     		throws ServletException, IOException {
-    	
+    	HttpSession session = request.getSession();
+      	 
+      	 if(session.getAttribute("id")== null) 
+      	 {
+      		 response.sendRedirect("/Timetable_App/");
+      	 }
+      	 else if(!session.getAttribute("usertype").equals("admin")) 
+      	 {
+      		 response.sendRedirect("/Timetable_App/");
+      	 }
     	String action = request.getRequestURI();
     	try {
 			switch (action) {
@@ -74,7 +83,7 @@ public class CRUDteacher extends HttpServlet {
 			case "/Timetable_App/teacher/update":
 			updateteacher(request, response);
 			break;
-			default:
+			case "/Timetable_App/teacher":
 			listteacher(request, response);
 			break;
 			}

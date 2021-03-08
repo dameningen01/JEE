@@ -17,14 +17,19 @@
     <title>Ensias Timetables</title>
 </head>
 <body>
+
+
+ 
  
       <c:if test="${!empty sessionScope.id }">
 		   <%@ include file="/WEB-INF/jsp/nav/student-nav.jsp" %> 
 		</c:if>
-      <c:if test="${sessionScope.usertype = 'admin'}">
-		   <%@ include file="/WEB-INF/jsp/nav/admin_nav.jsp" %>
+		
+      <c:if test="${sessionScope.usertype == 'admin'}">
+      
+		   <%@ include file="../nav/admin_nav.jsp" %>
 		</c:if>
-		<c:if test="${sessionScope.usertype = 'prof'}">
+		<c:if test="${sessionScope.usertype == 'prof'}">
 		   <%@ include file="/WEB-INF/jsp/nav/teacher-nav.jsp" %>   
 		</c:if>
     
@@ -45,11 +50,11 @@
 
     <div class="row">
 
-       <c:if test="${cl != null}">
+       <c:if test="${timetable != null}">
 		            <form class="col s12" action="update" method="post">
 		        </c:if>
 		        
-		        <c:if test="${cl == null}">
+		        <c:if test="${timetable == null}">
 		            <form class="col s12" action="insert" method="post">
 		        </c:if>
 		
@@ -91,14 +96,9 @@
                       <i class="material-icons prefix">account_circle</i>
                      
 					   <input  id="nb_days" type="number" name="nb_days" size="45"
-                            value=" <c:choose> 
-                            <c:when test="${timetable.getTimetableNbDays() != 0}">
-		           						<c:out value='${timetable.getTimetableNbDays()}' />
-		           					</c:when>
-		           					<c:otherwise>
-		           						<c:out value='4' />
-		           					</c:otherwise>
-		        				</c:choose>"
+                            value="<c:out value= '${timetable.getTimetableNbDays()}' />"
+		           					
+		        				
                             
                     />
                       <label for="nb_days">nb_days</label>

@@ -58,6 +58,10 @@ private IntTimetableDao timetableDao ;
     	 {
     		 response.sendRedirect("/Timetable_App/");
     	 }
+    	 else if(!session.getAttribute("usertype").equals("admin")) 
+    	 {
+    		 response.sendRedirect("/Timetable_App/");
+    	 }
     	
     	
 	 String action = request.getRequestURI();
@@ -78,7 +82,7 @@ private IntTimetableDao timetableDao ;
 			case "/Timetable_App/timetable/update":
 			updatetimetable(request, response);
 			break;
-			default:
+			case  "/Timetable_App/timetable" :
 			listtimetable(request, response);
 			break;
 			}
@@ -164,9 +168,9 @@ private IntTimetableDao timetableDao ;
 		Timetable timetable = new Timetable(); 
 		
 		timetable.setTimetableUserFk(user_fk);
-		//timetable.setTimetableNbDays(nb_days);
-		//timetable.setTimetableNbPeriods(nb_periods);
-		//timetable.setTimetableHoursPerPeriod(hours_per_period);
+		timetable.setTimetableNbDays(5);
+		timetable.setTimetableNbPeriods(4);
+		timetable.setTimetableHoursPerPeriod(2);
 		timetable.setTimetableDescription(description);
 		timetable.setTimetableFreeTime(free_time);
 		//timetable.setTimetableSummary(summary);             //??
@@ -184,6 +188,7 @@ private IntTimetableDao timetableDao ;
 		throws SQLException, IOException
     {
 		Long id = Long.parseLong(request.getParameter("id")); //hidden
+		System.out.println(id);
 		Long user_fk = Long.parseLong(request.getParameter("user_fk")); //hidden
 		
     	int  nb_days = Integer .parseInt (request.getParameter("nb_days"));
@@ -194,7 +199,7 @@ private IntTimetableDao timetableDao ;
 		String summary = request.getParameter("summary");
 	
 				
-		Timetable timetable = new Timetable( id, description,  user_fk,  free_time,  summary,  nb_days,  nb_periods,   hours_per_period);
+		Timetable timetable = new Timetable(id, description,  user_fk,  free_time,  summary,  nb_days,  nb_periods,   hours_per_period);
 		timetableDao.updateTimetable(timetable);
 		response.sendRedirect("/Timetable_App/timetable/");
     }
